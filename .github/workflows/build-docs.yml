@@ -35,13 +35,19 @@ jobs:
       - name: Disable Jekyll processing
         run: touch docs-build/.nojekyll
 
-      - name: Publish to documentation/ on main
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs-build
-          publish_branch: main
-          destination_dir: documentation
-          keep_files: true
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
+      - name: Replace documentation/ with the fresh build
+        run: |
+          rm -rf documentation
+          mv docs-build documentation
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add documentation
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Rebuild docs"
+            git push
+          fi
