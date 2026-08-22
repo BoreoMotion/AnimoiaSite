@@ -1,0 +1,1143 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Properties and animation" href="properties-and-animation.html"><link rel="prev" title="Animoia documentation" href="index.html">
+
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Animoia user guide - Animoia Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  --color-brand-primary: #5b5bd6;
+  --color-brand-content: #4f46c8;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #a5b4fc;
+  --color-brand-content: #a5b4fc;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #a5b4fc;
+  --color-brand-content: #a5b4fc;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Animoia Documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">Animoia Documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Animoia user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properties-and-animation.html">Properties and animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="effects-reference.html">Effects reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shortcuts.html">Keyboard shortcuts</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/guide.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="animoia-user-guide">
+<span id="user-guide"></span><h1>Animoia user guide<a class="headerlink" href="#animoia-user-guide" title="Link to this heading">¶</a></h1>
+<section id="getting-around">
+<h2>Getting around<a class="headerlink" href="#getting-around" title="Link to this heading">¶</a></h2>
+<section id="workspace-overview">
+<h3>Workspace overview<a class="headerlink" href="#workspace-overview" title="Link to this heading">¶</a></h3>
+<p>Animoia is a desktop motion-graphics compositor for Windows and Linux. The toolbar sits at the top, Project and Layer share the left panel, the Composition viewer is in the center, inspector tools sit on the right, and the Timeline runs across the bottom. Drag the separators to resize panels; panel sizes persist for your next session.</p>
+</section>
+<section id="fx-console">
+<span id="id1"></span><h3>FX Console<a class="headerlink" href="#fx-console" title="Link to this heading">¶</a></h3>
+<p>The FX Console is a keyboard-first launcher covering effects, presets, and commands in one search field. Open it, type a few characters, and press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> to apply whatever is highlighted — it is the fastest route to an effect whose name you know but whose category you would have to hunt for.</p>
+<section id="what-it-searches">
+<h4>What it searches<a class="headerlink" href="#what-it-searches" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><strong>Effects</strong> — every effect in the Effects panel.</p></li>
+<li><p><strong>Presets</strong> — your saved effect presets, from the watched presets folder.</p></li>
+<li><p><strong>Commands</strong> — the same ground as the File menu, the layer right-click menu, and the viewport view toggles: new and open project, save, undo and redo, duplicate, group, lock, alignment, flips, snapping, rulers, guides, and tool selection among them.</p></li>
+</ul>
+</section>
+<section id="matching-and-ranking">
+<h4>Matching and ranking<a class="headerlink" href="#matching-and-ranking" title="Link to this heading">¶</a></h4>
+<p>Because <code class="docutils literal notranslate"><span class="pre">Enter</span></code> applies the highlighted row, ranking matters more here than in the browsable Effects tree: the effect you meant has to be first after two or three keystrokes. Matches are scored by how they matched, best first:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 74.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Match type</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Exact name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">gaussian</span> <span class="pre">blur</span></code> → <em>Gaussian Blur</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Name prefix</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">gau</span></code> → <em>Gaussian Blur</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Word start</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">blur</span></code> → <em>Gaussian Blur</em>, <em>Camera Lens Blur</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Substring</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ussian</span></code> → <em>Gaussian Blur</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Initials</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">clb</span></code> → <em>Camera Lens Blur</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Subsequence</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">gblr</span></code> → <em>Gaussian Blur</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Category only</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sharpen</span></code> lists the Blur &amp; Sharpen effects, but always below anything actually named “…Sharpen”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Subsequence matching also weighs how spread out the match was, so a tight match ranks above a scattered one. Recently used items are remembered and surface first, which means the effects you actually reach for get faster the more you use them.</p>
+</section>
+<section id="unavailable-commands">
+<h4>Unavailable commands<a class="headerlink" href="#unavailable-commands" title="Link to this heading">¶</a></h4>
+<p>A command that cannot run right now — one needing a selection when nothing is selected, for instance — is shown dimmed rather than hidden. A command that silently disappears is much harder to learn than one you can see is temporarily unavailable, and the dimmed row tells you the command exists and what it needs.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Escape</span></code> clears the query first, then closes the console on a second press.</p>
+</section>
+</section>
+</section>
+<section id="project-and-file-workflow">
+<span id="creating-a-project"></span><h2>Project and file workflow<a class="headerlink" href="#project-and-file-workflow" title="Link to this heading">¶</a></h2>
+<section id="new-project">
+<h3>New project<a class="headerlink" href="#new-project" title="Link to this heading">¶</a></h3>
+<p>Choose <strong>File &gt; New</strong> or use the configured <strong>New project</strong> shortcut. Animoia asks before replacing the current project because unsaved work will be lost. A new project contains one empty 1920×1080, 30 fps, 10-second composition named <code class="docutils literal notranslate"><span class="pre">Comp</span> <span class="pre">1</span></code>.</p>
+</section>
+<section id="open-project">
+<h3>Open project<a class="headerlink" href="#open-project" title="Link to this heading">¶</a></h3>
+<p>Choose <strong>File &gt; Open project file</strong> and select a <code class="docutils literal notranslate"><span class="pre">.moia</span></code> file. Ordinary media can be stored as file references to keep projects small; generated sequences and split SVG assets remain embedded.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">.moia</span></code> replaces the older <code class="docutils literal notranslate"><span class="pre">.brisk</span></code> extension. Where a <code class="docutils literal notranslate"><span class="pre">.brisk</span></code> was plain JSON that any text editor could read, a <code class="docutils literal notranslate"><span class="pre">.moia</span></code> is compressed and encrypted, so it contains no readable strings and is not meant to be edited by hand. Make changes in Animoia and treat the file as opaque.</p>
+<p>A tampered or truncated <code class="docutils literal notranslate"><span class="pre">.moia</span></code> fails loudly when opened rather than yielding half a document, so a partial file will not quietly load as a damaged project.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.moia</span></code> container is designed to stop <em>casual</em> inspection — reading a project in a text editor, running <code class="docutils literal notranslate"><span class="pre">strings</span></code> or <code class="docutils literal notranslate"><span class="pre">grep</span></code> over it, or exposing the absolute asset paths it contains (which include your user name and folder layout) in a shared folder or a support-ticket attachment.</p>
+<p>It is not a guarantee of secrecy. Animoia opens projects without a password prompt, which means the key comes from the application itself and can be recovered by a determined person. Never treat a <code class="docutils literal notranslate"><span class="pre">.moia</span></code> as a safe place for passwords, tokens, or anything whose disclosure would be genuinely harmful.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If referenced media has moved, the project still opens but that asset remains offline until you use <strong>Reimport from File…</strong>. A corrupt or malformed file doesn’t replace the project already open.</p>
+</div>
+<section id="relinking-moved-media">
+<h4>Relinking moved media<a class="headerlink" href="#relinking-moved-media" title="Link to this heading">¶</a></h4>
+<p>When you relink one offline asset, Animoia looks at the others that are still missing. If they used to sit in the same folder as the file you just picked, it offers to relink that whole group in one step instead of asking you to hunt down each file individually. This is the fast way back from a project whose media folder was moved or renamed wholesale.</p>
+</section>
+</section>
+<section id="save-save-as-and-save-increment">
+<h3>Save, Save As, and Save Increment<a class="headerlink" href="#save-save-as-and-save-increment" title="Link to this heading">¶</a></h3>
+<p><strong>Save project file</strong> overwrites the current file on disk or asks for a destination the first time. <strong>Save As…</strong> always asks for a new destination. <strong>Save Increment</strong> appears after the project has a filename and writes a numbered copy, then continues work in that copy. The status bar adds <code class="docutils literal notranslate"><span class="pre">*</span></code> after the filename while changes are unsaved.</p>
+</section>
+<section id="pack-project">
+<h3>Pack Project<a class="headerlink" href="#pack-project" title="Link to this heading">¶</a></h3>
+<p><strong>File &gt; Pack Project</strong> writes a single <code class="docutils literal notranslate"><span class="pre">.zip</span></code> containing everything the project needs, and is the right way to archive a project or hand it to someone else.</p>
+<p>Everything sits inside a single top-level folder, so unzipping never scatters files into whatever directory you happened to be in:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;name&gt;/
+  &lt;name&gt;.moia    fully self-contained project, all media embedded
+  assets/        the original media, browsable
+</pre></div>
+</div>
+<p>The duplication is deliberate. The <code class="docutils literal notranslate"><span class="pre">.moia</span></code> is the only part needed to reopen the project — it embeds every asset, so it opens on any machine with no media hunting and no offline layers. <code class="docutils literal notranslate"><span class="pre">assets/</span></code> exists so a person or another application can actually read the source media, which a packed project would otherwise bury.</p>
+<p>Names inside <code class="docutils literal notranslate"><span class="pre">assets/</span></code> are made safe for any filesystem and de-duplicated, so two different assets that happen to share a name both survive with distinct filenames.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Image sequences are not written to <code class="docutils literal notranslate"><span class="pre">assets/</span></code>, because Animoia stores them as every frame concatenated into a single blob rather than as separate files. The frames remain inside the <code class="docutils literal notranslate"><span class="pre">.moia</span></code>, which is what actually restores the project.</p>
+</div>
+<p>Only the <code class="docutils literal notranslate"><span class="pre">.moia</span></code> is compressed. The media in <code class="docutils literal notranslate"><span class="pre">assets/</span></code> is already in compressed formats, so recompressing it costs time for almost no saving.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Packing is the most reliable way to hand a project over, because it does not depend on file references at all. A plain <code class="docutils literal notranslate"><span class="pre">.moia</span></code> may still point at media on your own disk; a packed project never does.</p>
+</div>
+</section>
+<section id="reduce-project-and-remove-unused">
+<h3>Reduce Project and Remove Unused<a class="headerlink" href="#reduce-project-and-remove-unused" title="Link to this heading">¶</a></h3>
+<p>Two Project-panel commands trim a project that has grown heavier than the work in it:</p>
+<ul class="simple">
+<li><p><strong>Reduce Project</strong> keeps the compositions you have selected and everything they depend on, then discards the rest. Because it follows nesting, a composition used only inside a composition you kept is also kept.</p></li>
+<li><p><strong>Remove Unused</strong> discards footage that no composition references at all.</p></li>
+</ul>
+<p>Both report what they removed, and both are a single undo step.</p>
+</section>
+<section id="autosave-and-closing">
+<h3>Autosave and closing<a class="headerlink" href="#autosave-and-closing" title="Link to this heading">¶</a></h3>
+<p>Animoia restores its autosaved session during startup, and <strong>File &gt; Restore Last Session</strong> brings that autosave back on demand — useful if you started something new and want the previous session again. Closing a project with unsaved changes offers <strong>Save</strong>, <strong>Don’t Save</strong>, and <strong>Cancel</strong>. <code class="docutils literal notranslate"><span class="pre">Enter</span></code> chooses Save; <code class="docutils literal notranslate"><span class="pre">Escape</span></code> cancels closing. If a render is active, Animoia instead offers <strong>Keep Rendering</strong> and <strong>Stop and Close</strong>; there is deliberately no destructive Enter shortcut.</p>
+</section>
+<section id="gpu-frame-cache-readout">
+<span id="gpu-frame-cache"></span><h3>GPU frame cache readout<a class="headerlink" href="#gpu-frame-cache-readout" title="Link to this heading">¶</a></h3>
+<p>The File menu carries a live meter showing how much of the GPU frame-cache budget is in use, as <code class="docutils literal notranslate"><span class="pre">used</span> <span class="pre">/</span> <span class="pre">budget</span></code> in gigabytes. Both numbers come from the cache that actually performs eviction, so the readout reflects real pressure rather than an estimate: when it sits near the budget, cached frames are being evicted and previews will re-render more often. Raise or lower the budget itself under <a class="reference internal" href="#prefs-performance"><span class="std std-ref">Performance preferences</span></a>.</p>
+</section>
+</section>
+<section id="project-panel">
+<h2>Project panel<a class="headerlink" href="#project-panel" title="Link to this heading">¶</a></h2>
+<section id="import-media">
+<h3>Import media<a class="headerlink" href="#import-media" title="Link to this heading">¶</a></h3>
+<p>Click Import, double-click empty Project-panel space, right-click empty space and choose <strong>Import Files…</strong>, drag files into the panel, or drop files on the Timeline.</p>
+<ul class="simple">
+<li><p>Numbered stills such as <code class="docutils literal notranslate"><span class="pre">shot_0001.png</span></code> are grouped as one image-sequence video.</p></li>
+<li><p>SVGs stay vector-quality. Layered SVGs can be prepared as a composition or imported flat when that choice is offered.</p></li>
+<li><p>GIF/WebP animation is converted to an image sequence.</p></li>
+<li><p>Images, video, and audio become reusable project assets.</p></li>
+</ul>
+<p>Importing is a background task. Its progress appears in the status bar. Project editing is locked during playback, but Project search remains available.</p>
+</section>
+<section id="search-and-organize">
+<h3>Search and organize<a class="headerlink" href="#search-and-organize" title="Link to this heading">¶</a></h3>
+<p>Search matches names and useful metadata: type, dimensions, duration, frame rate, sequence status, and audio presence. Use <strong>New Folder</strong> to collect assets and compositions. Drag rows into an expanded folder, onto a folder row, or back to root space. Deleting a folder moves its contents to the project root rather than deleting them.</p>
+<p>Click a row to select it. <code class="docutils literal notranslate"><span class="pre">Shift</span></code> selects a range and <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> toggles an item. Drag empty space for a marquee. Click a row’s color tag to choose a label color. Hover a composition or asset for a thumbnail and metadata tooltip.</p>
+</section>
+<section id="project-item-actions">
+<h3>Project item actions<a class="headerlink" href="#project-item-actions" title="Link to this heading">¶</a></h3>
+<p>Right-click a row for the actions that apply to it:</p>
+<ul class="simple">
+<li><p><strong>Rename</strong> edits the row name.</p></li>
+<li><p><strong>Edit</strong> opens Composition Settings.</p></li>
+<li><p><strong>Open Composition</strong> shows that composition.</p></li>
+<li><p><strong>Add to Current Comp</strong> creates a layer; a composition can’t be added to itself.</p></li>
+<li><p><strong>Duplicate</strong> copies compositions.</p></li>
+<li><p><strong>Reimport from File…</strong> replaces an asset in place, so every layer using it updates. SVG-derived assets don’t offer this action.</p></li>
+<li><p><strong>Sequence Settings…</strong> changes an image sequence’s name and 1–120 fps playback rate. Frame count and dimensions are read-only; duration follows frame rate.</p></li>
+<li><p><strong>Move out of Folder</strong> returns selected rows to root.</p></li>
+<li><p><strong>Delete</strong> removes the selection. The project’s last composition can’t be deleted.</p></li>
+</ul>
+<p>Double-click a composition to open it, a folder to expand/collapse it, or video/audio to open Footage Preview.</p>
+</section>
+<section id="footage-preview">
+<h3>Footage Preview<a class="headerlink" href="#footage-preview" title="Link to this heading">¶</a></h3>
+<p>Footage Preview plays a composition, image sequence, video, or audio source without changing the active composition. Scrub the bar, use transport controls, or use the shared playback shortcuts. Set In and Out with the work-area commands; the markers themselves aren’t draggable. <strong>Clear</strong> restores the full source.</p>
+<p>Choose <strong>Add to Composition</strong> to place the trimmed span at the active composition’s playhead. The new layer keeps the chosen source offset and may extend beyond the composition end. A trim must remain at least one source frame long.</p>
+</section>
+</section>
+<section id="compositions">
+<h2>Compositions<a class="headerlink" href="#compositions" title="Link to this heading">¶</a></h2>
+<section id="create-and-edit-a-composition">
+<h3>Create and edit a composition<a class="headerlink" href="#create-and-edit-a-composition" title="Link to this heading">¶</a></h3>
+<p>Choose <strong>New Composition</strong> in the Project panel or use its shortcut. Right-click a composition and choose <strong>Edit</strong>, double-click its open Timeline tab, or use <strong>Composition settings</strong> for the composition on screen.</p>
+<div class="table-wrapper colwidths-given docutils container" id="id3">
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Composition settings</span><a class="headerlink" href="#id3" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 29.3%" />
+<col style="width: 19.5%" />
+<col style="width: 51.2%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Preset</p></td>
+<td><p>Menu</p></td>
+<td><p>Picks Custom, HD 1080p 30/60, HD 720p, UHD 4K, DCI 4K, QHD, Vertical, Square, or Cinema 2K dimensions and frame rate.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>Text</p></td>
+<td><p>Composition name, limited to the app’s name length.</p></td>
+</tr>
+<tr class="row-even"><td><p>Width / Height</p></td>
+<td><p>Pixels</p></td>
+<td><p>Output dimensions. Link them to preserve the current aspect ratio while editing either value.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Frame Rate</p></td>
+<td><p>fps</p></td>
+<td><p>Composition frame grid and playback rate.</p></td>
+</tr>
+<tr class="row-even"><td><p>Duration</p></td>
+<td><p>Seconds/timecode</p></td>
+<td><p>Composition length.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Background</p></td>
+<td><p>None/Solid</p></td>
+<td><p>Transparent background or an opaque color. The color swatch opens the color picker.</p></td>
+</tr>
+<tr class="row-even"><td><p>Motion Blur</p></td>
+<td><p>Toggle</p></td>
+<td><p>Master switch; a layer also needs its own Motion Blur switch.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Shutter Angle</p></td>
+<td><p>Degrees</p></td>
+<td><p>Exposure span, 0–720 degrees.</p></td>
+</tr>
+<tr class="row-even"><td><p>Shutter Phase</p></td>
+<td><p>Degrees</p></td>
+<td><p>Moves the exposure window relative to each frame.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Samples</p></td>
+<td><p>Integer</p></td>
+<td><p>Sub-frame samples per blurred layer, from 2–64.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Edits preview live, but <strong>Cancel</strong> restores the original composition. <strong>OK</strong> commits the complete draft as one undo step. Resizing never scales layers; root layers shift so a plain resize remains centered. Parent children follow their roots. Shortening a source composition re-clamps nested layers.</p>
+</section>
+<section id="crop-composition">
+<h3>Crop composition<a class="headerlink" href="#crop-composition" title="Link to this heading">¶</a></h3>
+<p>In edit mode, choose <strong>Crop</strong> and drag the on-canvas crop box or its handles. <code class="docutils literal notranslate"><span class="pre">Enter</span></code>/Crop applies the box to the settings draft; <code class="docutils literal notranslate"><span class="pre">Escape</span></code>/Cancel discards that box. You can crop repeatedly, edit the resulting dimensions, undo within the settings window, or cancel the whole draft.</p>
+</section>
+<section id="pre-compose">
+<h3>Pre-compose<a class="headerlink" href="#pre-compose" title="Link to this heading">¶</a></h3>
+<p>Select layers and use <strong>Pre-compose</strong>. Name the new composition, then choose:</p>
+<ul class="simple">
+<li><p><strong>Keep everything on this layer</strong> — single-layer only. Only source content moves inside; transform, effects, keyframes, and timing remain on the original layer.</p></li>
+<li><p><strong>Move layers inside</strong> — moves selected layers and their properties into the new composition and replaces them with one composition layer.</p></li>
+</ul>
+<p>For Move mode, <strong>Trim to Contents</strong> makes the nested composition match the selected span; <strong>Match Parent Composition</strong> uses the parent duration.</p>
+</section>
+<section id="composition-tabs">
+<h3>Composition tabs<a class="headerlink" href="#composition-tabs" title="Link to this heading">¶</a></h3>
+<p>Open compositions appear as Timeline tabs. Click to switch, double-click to open settings, and close a tab without deleting its composition. The composition-usage menu beside the timecode shows where the active composition is nested and lets you navigate to a parent use.</p>
+</section>
+</section>
+<section id="toolbar-and-tools">
+<h2>Toolbar and tools<a class="headerlink" href="#toolbar-and-tools" title="Link to this heading">¶</a></h2>
+<section id="selection-tool">
+<h3>Selection tool<a class="headerlink" href="#selection-tool" title="Link to this heading">¶</a></h3>
+<p>Use Selection to select, move, resize, and box-transform layers. <strong>Direct selection</strong> lets you click canvas content directly; turn it off when you want canvas interaction to affect only Timeline-selected layers. Arrow keys nudge selected unlocked layers by 1 px; hold <code class="docutils literal notranslate"><span class="pre">Shift</span></code> for 10 px.</p>
+<p><strong>Snapping</strong> aligns moving layers to any enabled targets. Click it to toggle, or hold it to choose Composition Center, Composition Bounds, Guides, and Layer Bounding Boxes.</p>
+</section>
+<section id="hand-and-temporary-pan">
+<h3>Hand and temporary pan<a class="headerlink" href="#hand-and-temporary-pan" title="Link to this heading">¶</a></h3>
+<p>Use Hand to pan the viewer. Middle-drag always pans. Hold <code class="docutils literal notranslate"><span class="pre">Space</span></code> and drag for temporary panning; a Space tap without a pan toggles playback. The Timeline uses the same temporary-pan gesture, with vertical-only movement over its label column.</p>
+</section>
+<section id="rotation-and-anchor-point-tools">
+<h3>Rotation and Anchor Point tools<a class="headerlink" href="#rotation-and-anchor-point-tools" title="Link to this heading">¶</a></h3>
+<p>Rotation rotates selected layers on canvas. Anchor Point moves the pivot without visually moving the layer. Choose <strong>Insert keyframe at playhead</strong> or <strong>Modify existing keyframes</strong> for keyframed anchor/position data. The same choice is shared with the Anchor inspector.</p>
+</section>
+<section id="shape-tool">
+<h3>Shape tool<a class="headerlink" href="#shape-tool" title="Link to this heading">¶</a></h3>
+<p>Hold the Shape tool to choose Rectangle, Ellipse, Polygon, or Star, then drag in the Composition viewer. The button remembers the last shape. Polygon/star drag direction becomes the shape’s built-in orientation, leaving layer Rotation at zero.</p>
+</section>
+<section id="pen-and-mask-tool">
+<span id="masks-and-paths"></span><h3>Pen and Mask tool<a class="headerlink" href="#pen-and-mask-tool" title="Link to this heading">¶</a></h3>
+<p>Select the Pen tool with <code class="docutils literal notranslate"><span class="pre">G</span></code>. With no suitable layer selected it draws a new path shape layer; on a selected visual layer the same gesture creates a <a class="reference internal" href="effects/mask.html#effect-mask"><span class="std std-ref">Mask</span></a> instead. Compound paths support multiple contours with nonzero and even-odd fills.</p>
+<section id="drawing-a-path">
+<h4>Drawing a path<a class="headerlink" href="#drawing-a-path" title="Link to this heading">¶</a></h4>
+<p>Click in the viewer to lay a corner point. Drag while placing a point instead, and you pull out a pair of Bezier tangent handles, so the segment curves. Hold <code class="docutils literal notranslate"><span class="pre">Shift</span></code> while placing the next point to lock the new segment to 45° increments from the previous point.</p>
+<p>Click the contour’s first point again to close it, which also ends the drawing session while leaving the path editable. Press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> to finish an open path, or <code class="docutils literal notranslate"><span class="pre">Esc</span></code> to cancel the path you are drawing. Pressing <code class="docutils literal notranslate"><span class="pre">Esc</span></code> again clears the pen’s editing target.</p>
+<p>To resume an unfinished path, click its end point once without dragging — the drawing session continues from there.</p>
+</section>
+<section id="adding-deleting-and-converting-points">
+<h4>Adding, deleting, and converting points<a class="headerlink" href="#adding-deleting-and-converting-points" title="Link to this heading">¶</a></h4>
+<div class="table-wrapper colwidths-given docutils container" id="id4">
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Point editing gestures</span><a class="headerlink" href="#id4" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 66.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Gesture</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + click a segment</p></td>
+<td><p>Inserts a new point exactly on the curve at that spot without changing the path’s shape. The cursor becomes a crosshair and a preview marker shows where the point will land.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + click a point</p></td>
+<td><p>Removes that point and rejoins its neighbors. Points always win over segments, so a click that lands on both never splits the curve underneath.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Delete</span></code> or <code class="docutils literal notranslate"><span class="pre">Backspace</span></code></p></td>
+<td><p>Removes every selected point at once.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Alt</span></code> + click a point</p></td>
+<td><p>Converts the point between corner and smooth by retracting both handles or growing them back.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Alt</span></code> + drag a handle</p></td>
+<td><p>Breaks the handle pair so the two sides bend independently, giving a sharp cusp with curves on both sides.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Alt</span></code> + click a handle</p></td>
+<td><p>Retracts that single handle, straightening the segment on that side only.</p></td>
+</tr>
+<tr class="row-even"><td><p>Drag a handle</p></td>
+<td><p>Reshapes the curve. Once a pair is broken, each side keeps moving independently without holding <code class="docutils literal notranslate"><span class="pre">Alt</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Both point insertion and deletion are topology changes, so Animoia applies them to the base path <em>and</em> to every keyframe at once, which keeps an animated path consistent.</p>
+</section>
+<section id="selecting-and-moving-points">
+<h4>Selecting and moving points<a class="headerlink" href="#selecting-and-moving-points" title="Link to this heading">¶</a></h4>
+<p>Click a point to select it and drag to move it. <code class="docutils literal notranslate"><span class="pre">Shift</span></code> + click adds or removes a single point from the selection, and <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">A</span></code> selects every point on the path, including the points of its holes.</p>
+<p>When editable paths are on screen, dragging from empty space draws a marquee that box-selects points; hold <code class="docutils literal notranslate"><span class="pre">Shift</span></code> to add to the existing selection. Because a marquee would otherwise make masks unreachable on those layers, a <strong>double-click</strong> drag in empty space always creates a new mask or path instead.</p>
+<p>With points selected, the arrow keys nudge the <em>points</em> rather than the layer — one composition pixel per press, or ten with <code class="docutils literal notranslate"><span class="pre">Shift</span></code> held. The nudge is measured on screen, so it stays exact on a rotated or scaled layer. Hold <code class="docutils literal notranslate"><span class="pre">Shift</span></code> while dragging points or handles to constrain the movement to 45° increments.</p>
+<p>Points can be edited across several selected layers at once: clicking a point on another selected layer’s path switches the pen to that path without needing <code class="docutils literal notranslate"><span class="pre">Esc</span></code> first.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="effects/mask.html#effect-mask"><span class="std std-ref">Mask</span></a> for the Mask properties this tool creates, <a class="reference internal" href="effects/paths.html#effects-paths"><span class="std std-ref">Paths</span></a> for operators that reshape the finished path, and <a class="reference internal" href="shortcuts.html#keyboard-shortcuts"><span class="std std-ref">Keyboard shortcuts</span></a> for the full key list.</p>
+</div>
+</section>
+</section>
+<section id="type-tool">
+<h3>Type tool<a class="headerlink" href="#type-tool" title="Link to this heading">¶</a></h3>
+<p>Drag to create box text or click/type for text content. A new text layer starts empty. Rich-text controls target the active text selection; without one they target the full content and, where supported, all selected text layers. Undo/redo remains document-aware during text editing.</p>
+</section>
+<section id="puppet-pin-tool">
+<span id="puppet-tool"></span><h3>Puppet Pin tool<a class="headerlink" href="#puppet-pin-tool" title="Link to this heading">¶</a></h3>
+<p>Click a visual layer to add pins. The first pin creates the hidden Puppet effect. Drag pins to deform the generated mesh; pin positions auto-keyframe when animation is active. Use <strong>Show Mesh</strong> to reveal or hide the deformation mesh. Delete selected pins with the normal Delete command.</p>
+</section>
+<section id="add-layer">
+<h3>Add Layer<a class="headerlink" href="#add-layer" title="Link to this heading">¶</a></h3>
+<p>Click to add the remembered layer type; hold to choose <strong>Solid</strong>, <strong>Adjustment</strong>, or <strong>Null</strong>. A Solid fills the composition. An Adjustment layer applies its effects to content below through its alpha. A Null is an invisible 100×100 parenting target.</p>
+</section>
+</section>
+<section id="composition-viewer">
+<h2>Composition viewer<a class="headerlink" href="#composition-viewer" title="Link to this heading">¶</a></h2>
+<section id="zoom-pan-and-preview-quality">
+<h3>Zoom, pan, and preview quality<a class="headerlink" href="#zoom-pan-and-preview-quality" title="Link to this heading">¶</a></h3>
+<p>Choose Fit or a percentage from the viewer footer. Choosing any zoom recenters the composition. Pan with Hand, middle drag, or Space-drag. <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + wheel zooms instead of scrolling the panel.</p>
+<p>Preview quality offers Full, Half, Third, and Quarter. It affects interactive preview, not full-resolution snapshots or final rendering. Adaptive resolution may temporarily drop lower during slow drags/scrubs and returns when interaction stops.</p>
+</section>
+<section id="rulers-guides-and-overlays">
+<h3>Rulers, guides, and overlays<a class="headerlink" href="#rulers-guides-and-overlays" title="Link to this heading">¶</a></h3>
+<p>Toggle rulers from the footer or View shortcut. Drag from the top ruler for a horizontal guide or left ruler for a vertical guide. Drag the ruler origin to move it; double-click to reset. Lock guides to prevent edits. The eraser clears all guides and resets the composition overlay to None.</p>
+<p>The overlay menu offers None, Grid, Action Safe, Title Safe, Rule of Thirds, Golden Ratio, Golden Spiral, Diagonal Method, and Crosshair. These helpers never render or export.</p>
+</section>
+<section id="motion-paths-and-box-controls">
+<h3>Motion paths and box controls<a class="headerlink" href="#motion-paths-and-box-controls" title="Link to this heading">¶</a></h3>
+<p><strong>Show Motion Paths</strong> displays selected position animation and editable spatial tangents. <strong>Show Box Controls</strong> shows layer bounds, resize handles, and anchor. Viewer overlays disappear during playback; gradient editing keeps only its own control visible.</p>
+</section>
+<section id="save-frame">
+<h3>Save Frame<a class="headerlink" href="#save-frame" title="Link to this heading">¶</a></h3>
+<p>Choose <strong>Save Frame As PNG</strong> from the viewer menu or camera button. Animoia renders the current frame at full composition resolution and saves PNG. It uses the preferred snapshot directory when available, otherwise it asks you where to save the file.</p>
+<p>Files are named <code class="docutils literal notranslate"><span class="pre">&lt;composition&gt;_&lt;frame&gt;.png</span></code> — frame 42 of “Comp 1” becomes <code class="docutils literal notranslate"><span class="pre">Comp</span> <span class="pre">1_42.png</span></code>. The frame number is not zero-padded, and frame 0 is kept as <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>Saving never overwrites an existing snapshot. If the name is taken, Animoia appends a counter and keeps incrementing it, so clicking Save Frame four times on the same frame yields <code class="docutils literal notranslate"><span class="pre">Comp</span> <span class="pre">1_42.png</span></code>, <code class="docutils literal notranslate"><span class="pre">Comp</span> <span class="pre">1_42</span> <span class="pre">(2).png</span></code>, <code class="docutils literal notranslate"><span class="pre">Comp</span> <span class="pre">1_42</span> <span class="pre">(3).png</span></code>, and <code class="docutils literal notranslate"><span class="pre">Comp</span> <span class="pre">1_42</span> <span class="pre">(4).png</span></code>. Gaps are filled rather than skipped: with <code class="docutils literal notranslate"><span class="pre">Comp</span> <span class="pre">1_42.png</span></code> and <code class="docutils literal notranslate"><span class="pre">Comp</span> <span class="pre">1_42</span> <span class="pre">(3).png</span></code> already present, the next save takes <code class="docutils literal notranslate"><span class="pre">Comp</span> <span class="pre">1_42</span> <span class="pre">(2).png</span></code>.</p>
+</section>
+</section>
+<section id="color-panel">
+<span id="id2"></span><h2>Color panel<a class="headerlink" href="#color-panel" title="Link to this heading">¶</a></h2>
+<p>The Inspector’s Color panel is an always-available quick picker for solid colors: a hue ring with a saturation/brightness triangle, a hex field, an eyedropper, and the project’s swatches, all aimed at whatever the selection’s Fill or Stroke currently is.</p>
+<section id="how-it-differs-from-the-color-window">
+<h3>How it differs from the Color window<a class="headerlink" href="#how-it-differs-from-the-color-window" title="Link to this heading">¶</a></h3>
+<p>Clicking a paint swatch in the properties list opens the floating <strong>Color window</strong>, which edits one property of one layer and offers the full paint model — gradients, gradient stops, and “none”. The Color panel is the quick counterpart: solid colors only, but always on screen and aimed at the current selection.</p>
+<p>Both write through the same path, so an edit in the panel scopes to a text selection and fans out across a multi-layer selection exactly as it does in the window. Choosing a solid color in the panel will replace a gradient fill.</p>
+</section>
+<section id="the-loaded-brush">
+<h3>The loaded brush<a class="headerlink" href="#the-loaded-brush" title="Link to this heading">¶</a></h3>
+<p>With nothing selected, the panel is not inert. The wheel then edits the <em>armed</em> fill and stroke — the colors new shapes, paths, and text are created with, like the loaded brush of a traditional paint program. Set the color first, then draw, and the new layer arrives already the right color.</p>
+</section>
+<section id="fill-and-stroke-targets">
+<h3>Fill and stroke targets<a class="headerlink" href="#fill-and-stroke-targets" title="Link to this heading">¶</a></h3>
+<p>A combined Fill/Stroke target selects which of the two the wheel and hex field drive. A checkerboard behind a swatch means transparency, and the <strong>none</strong> control clears the paint entirely rather than setting it to transparent black.</p>
+</section>
+<section id="eyedropper">
+<h3>Eyedropper<a class="headerlink" href="#eyedropper" title="Link to this heading">¶</a></h3>
+<p>The eyedropper samples a color from the screen. Where the operating system provides a native screen picker, Animoia uses it — that path samples the final composited image, including text, images, shadows, and content outside the application window, and brings its own magnifier. Some Linux desktops restrict screen capture, in which case sampling is limited to the Animoia window.</p>
+<p>Otherwise Animoia falls back to an in-app overlay. Clicks inside the composition are resolved by sampling the rendered canvas directly; clicks elsewhere in the interface are resolved against the interface itself. Press <code class="docutils literal notranslate"><span class="pre">Escape</span></code> to cancel picking.</p>
+</section>
+<section id="swatches">
+<h3>Swatches<a class="headerlink" href="#swatches" title="Link to this heading">¶</a></h3>
+<p>Save the current color as a project swatch with the add button, click a swatch to apply it, and right-click one for its actions, including removal. Swatches are stored with the project in the order you added them, so a palette travels with the file. Alpha is kept, which means the same RGB at two different opacities counts as two distinct swatches.</p>
+</section>
+</section>
+<section id="timeline">
+<span id="layers-and-timeline"></span><h2>Timeline<a class="headerlink" href="#timeline" title="Link to this heading">¶</a></h2>
+<section id="transport-ruler-and-work-area">
+<h3>Transport, ruler, and work area<a class="headerlink" href="#transport-ruler-and-work-area" title="Link to this heading">¶</a></h3>
+<p>The transport shows current timecode and composition duration. Scrub the ruler to move the playhead. Page Up/Down steps one frame, or ten with <code class="docutils literal notranslate"><span class="pre">Shift</span></code>. Home/End go to composition bounds. J/K visit visible keyframes.</p>
+<p>The Work Area limits preview and can limit rendering. Set its start/end at the playhead, drag its handles, clear it, or <strong>Trim comp to work area</strong>. Trimming shifts layers to the new zero point and clears the work area.</p>
+</section>
+<section id="layer-strip-editing">
+<h3>Layer strip editing<a class="headerlink" href="#layer-strip-editing" title="Link to this heading">¶</a></h3>
+<p>Drag a strip to move it. Drag either edge to trim. <code class="docutils literal notranslate"><span class="pre">Shift</span></code> while moving/trimming snaps to visible in/out points, keyframes, and the playhead. Use commands to trim an edge to the playhead, slide an in/out point to the playhead, split layers, or jump to layer bounds.</p>
+<p>Drag Project items to empty Timeline space to insert them. <code class="docutils literal notranslate"><span class="pre">Alt</span></code>-drop a compatible item on a layer to replace its source. OS files dropped on the Timeline import and insert. Drag layers vertically by their name to reorder.</p>
+</section>
+<section id="layer-switches-and-links">
+<h3>Layer switches and links<a class="headerlink" href="#layer-switches-and-links" title="Link to this heading">¶</a></h3>
+<p>The stack exposes Video, Audio, Lock, Continuous Rasterization, Sampling, Motion Blur, Adjustment, Parent/Link or Stencil, and Invert Stencil controls where applicable. Multi-selected switches synchronize to the state you choose on the clicked row.</p>
+<section id="sampling-and-continuous-rasterization">
+<span id="sampling-switches"></span><h4>Sampling and Continuous Rasterization<a class="headerlink" href="#sampling-and-continuous-rasterization" title="Link to this heading">¶</a></h4>
+<p>Scaling quality used to be one combined switch. It is now two, because the underlying question is different for vector and bitmap layers, and only one of the two applies to any given layer:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 22.0%" />
+<col style="width: 52.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Switch</p></th>
+<th class="head"><p>Appears on</p></th>
+<th class="head"><p>What it does</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Continuous Rasterization</strong></p></td>
+<td><p>Precomps, shapes, text, and SVG — anything resolution independent</p></td>
+<td><p>Re-renders the layer at the size it is actually drawn, so it stays sharp when scaled up.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sampling</strong></p></td>
+<td><p>Video, images, and other fixed-size rasters</p></td>
+<td><p>Chooses between <strong>bilinear</strong>, which smooths the pixels when scaled, and <strong>nearest neighbour</strong>, which keeps hard pixel edges.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The distinction is simply whether the source can be redrawn larger. A vector or a nested composition can, so it gets Continuous Rasterization; a bitmap has a fixed number of pixels and can only be interpolated, so it gets Sampling.</p>
+<p>What Continuous Rasterization means depends on the layer:</p>
+<ul class="simple">
+<li><p>On a <strong>precomp</strong>, turning it on collapses the nested composition into its parent, so it stays sharp when scaled — but the nested layer’s own effects and masks are ignored, which is the trade-off. Off, the precomp renders into its own buffer and softens when scaled up.</p></li>
+<li><p>On <strong>vector artwork</strong>, turning it on rasterizes at a much higher resolution so the layer holds detail when scaled up. Off, it is rasterized once at its default resolution.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use nearest-neighbour Sampling deliberately for pixel art and low-resolution sources. Bilinear smoothing is what turns crisp pixel art into mush when you scale it up.</p>
+</div>
+</section>
+<section id="parent-and-stencil-columns">
+<h4>Parent and Stencil columns<a class="headerlink" href="#parent-and-stencil-columns" title="Link to this heading">¶</a></h4>
+<p>The Parent and Stencil columns share one slot in the layer stack. Click the column header, or press <code class="docutils literal notranslate"><span class="pre">X</span></code>, to switch between them.</p>
+<p>A layer can parent to another layer, a motion tracker, or a stabilized parent result. Invalid self/descendant choices are excluded.</p>
+<p>Assigning a <strong>Stencil</strong> uses another layer as this layer’s matte and initially hides the stencil source; turn its eye back on if it should also render visibly. <strong>Invert Stencil</strong> swaps which side is kept. For finer control over which channel drives the matte, use the <a class="reference internal" href="effects/mask.html#effect-stencil"><span class="std std-ref">Stencil effect</span></a> instead — it exposes channel choice and a blend amount that this column does not.</p>
+<p>Locked layers stay visible but reject edits, selection, dragging, switches, and renaming. The lock control and gated right-click menu remain available.</p>
+</section>
+</section>
+<section id="timeline-view-controls">
+<h3>Timeline view controls<a class="headerlink" href="#timeline-view-controls" title="Link to this heading">¶</a></h3>
+<p>Use minus/plus, the zoom slider, or <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + wheel to zoom around the playhead. Horizontal wheel/<code class="docutils literal notranslate"><span class="pre">Shift</span></code>-wheel scrolls. The custom scrollbar moves through long compositions. <strong>Purge</strong> clears cached preview frames, which frees the memory shown in the <a class="reference internal" href="#gpu-frame-cache"><span class="std std-ref">frame cache meter</span></a> without touching your project.</p>
+</section>
+</section>
+<section id="exporting">
+<span id="rendering-and-export"></span><h2>Exporting<a class="headerlink" href="#exporting" title="Link to this heading">¶</a></h2>
+<section id="export-settings">
+<h3>Export settings<a class="headerlink" href="#export-settings" title="Link to this heading">¶</a></h3>
+<p>Choose <strong>File &gt; Export…</strong>. Settings persist between sessions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This dialog was previously called <strong>Render</strong>. The settings are unchanged; only the name differs, so older notes referring to “Render…” describe the same window.</p>
+</div>
+<div class="table-wrapper colwidths-given docutils container" id="id5">
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">Export settings</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 29.3%" />
+<col style="width: 20.7%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mode</p></td>
+<td><p>Menu</p></td>
+<td><p>Video Only, Audio Only, or Video + Audio.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Format</p></td>
+<td><p>Menu</p></td>
+<td><p>Video: MP4/MOV/WebM/MKV; image sequence: PNG/JPG ZIP; audio: WAV/MP3.</p></td>
+</tr>
+<tr class="row-even"><td><p>Resolution</p></td>
+<td><p>Menu</p></td>
+<td><p>Full, Half, or Quarter; dimensions are rounded to even pixels.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Frame Rate</p></td>
+<td><p>fps</p></td>
+<td><p>Can’t exceed the composition rate. Once customized, it stays customized but remains clamped.</p></td>
+</tr>
+<tr class="row-even"><td><p>Range</p></td>
+<td><p>Menu</p></td>
+<td><p>Full Composition or Work Area.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Video Bitrate</p></td>
+<td><p>Mbps</p></td>
+<td><p>Applies to encoded video formats.</p></td>
+</tr>
+<tr class="row-even"><td><p>Audio Bitrate</p></td>
+<td><p>kbps</p></td>
+<td><p>Applies to compressed audio.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JPEG Quality</p></td>
+<td><p>Percent</p></td>
+<td><p>Applies to JPG sequences.</p></td>
+</tr>
+<tr class="row-even"><td><p>ZIP Compression</p></td>
+<td><p>Level</p></td>
+<td><p>Applies to PNG/JPG sequence archives.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Filename</p></td>
+<td><p>Text</p></td>
+<td><p>Invalid filename characters and repeated spaces become hyphens.</p></td>
+</tr>
+<tr class="row-even"><td><p>Location</p></td>
+<td><p>Folder</p></td>
+<td><p>Last valid render folder wins; Preferences supplies a fallback.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A composition with no audible audio still renders: combined output omits audio where possible and audio-only output uses silence. Existing filenames show an overwrite state. A missing or unwritable folder disables Render until you choose another.</p>
+<p>During rendering, the window shows progress, elapsed time, remaining estimate, and status. Closing asks before discarding the render. <code class="docutils literal notranslate"><span class="pre">Escape</span></code> opens/cancels the close flow; <code class="docutils literal notranslate"><span class="pre">Enter</span></code> starts an idle render or closes a completed one, but never interrupts an active render.</p>
+</section>
+</section>
+<section id="preferences">
+<h2>Preferences<a class="headerlink" href="#preferences" title="Link to this heading">¶</a></h2>
+<section id="appearance">
+<h3>Appearance<a class="headerlink" href="#appearance" title="Link to this heading">¶</a></h3>
+<p>Changes apply immediately and save automatically. Where the old build offered fixed named themes, appearance is now continuous: five sliders shape the interface, and every one of them defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>, which reproduces the shipped look exactly rather than approximating it with a preset.</p>
+<section id="surfaces-and-text">
+<h4>Surfaces and text<a class="headerlink" href="#surfaces-and-text" title="Link to this heading">¶</a></h4>
+<p>Each slider owns a different set of interface tokens, so they compose instead of fighting one another. Every one has its own <strong>Reset</strong> button, which is disabled while that axis is already at <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22.0%" />
+<col style="width: 20.0%" />
+<col style="width: 58.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Slider</p></th>
+<th class="head"><p>Range</p></th>
+<th class="head"><p>What it moves</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Brightness</strong></p></td>
+<td><p>−100 to 100</p></td>
+<td><p>Moves every panel surface up or down together.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Contrast</strong></p></td>
+<td><p>−100 to 100</p></td>
+<td><p>Changes only the spread <em>between</em> surfaces, leaving their average where it is. Text is excluded, so raising contrast cannot wash the interface toward grey.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Borders</strong></p></td>
+<td><p>−100 to 100</p></td>
+<td><p>Moves the outline tokens alone, from nearly invisible panel edges to strongly delineated ones.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Text</strong></p></td>
+<td><p>−100 to 100</p></td>
+<td><p>Moves text and, because icons inherit their color, icon brightness with it.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Neutral tone</strong></p></td>
+<td><p>−100 to 100</p></td>
+<td><p>Tints every neutral surface. <code class="docutils literal notranslate"><span class="pre">0</span></code> is true grey with no tint at all; negative values tint warm and positive values tint cool.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Neutral tone</strong> is centered on zero rather than starting there, so warmth and coolness are symmetric — dragging left and right from the middle produces mirror-image tints, and crossing zero passes through pure grey instead of jumping between hues.</p>
+</div>
+</section>
+<section id="accent">
+<h4>Accent<a class="headerlink" href="#accent" title="Link to this heading">¶</a></h4>
+<p>Choose from 23 accent swatches, ordered around the hue circle so the picker reads as a spectrum: Crimson, Sakura, Ruby, Ember, Sand, Amber, Gold, Lime, Grass, Forest, Emerald, Jade, Sky, Azure, Tide, Slate, Indigo, Aurora (the default), Violet, Galaxy, Magenta, Fuchsia, and Rose. The accent drives highlights, active controls, the playhead, and focus rings.</p>
+<p>Lightness and saturation are tuned per hue rather than held constant, so the yellows and greens do not read as washed out next to the blues.</p>
+</section>
+<section id="property-value-colors">
+<h4>Property value colors<a class="headerlink" href="#property-value-colors" title="Link to this heading">¶</a></h4>
+<p>Property values in the inspector and timeline are color-coded by state, and those colors are derived from your accent so they always sit in the same family as the rest of the interface. Four states are exposed, and each can be overridden with a color of your own:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>State</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Normal</strong></p></td>
+<td><p>The property is at its default value and is not animated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Animated</strong></p></td>
+<td><p>The property has keyframes. Selected keyframes use this color too, since both mean “this property is animated”.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Animated and modified</strong></p></td>
+<td><p>The property has keyframes <em>and</em> has been changed from its default.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Modified</strong></p></td>
+<td><p>The property has been changed from its default but is not animated.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reset</strong> discards your overrides and returns to the combination suggested by the current accent.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The suggested “modified” color is the accent pulled toward warm rather than a fixed red, which is what keeps it legible when you pick a red or pink accent. Overriding all four with similar colors defeats the point of the coding — keep them distinguishable at a glance.</p>
+</div>
+</section>
+<section id="window-controls">
+<h4>Window controls<a class="headerlink" href="#window-controls" title="Link to this heading">¶</a></h4>
+<p>Choose <strong>Classic</strong> or <strong>Traffic Lights</strong> for the window buttons.</p>
+</section>
+<section id="reduce-ui-animations">
+<h4>Reduce UI animations<a class="headerlink" href="#reduce-ui-animations" title="Link to this heading">¶</a></h4>
+<p>Turns off interface transitions and motion. Animoia follows your operating system’s reduced-motion setting by default and tells you when it is doing so; setting this switch explicitly overrides the system preference in either direction. It affects interface chrome only — it never changes how your composition renders or exports.</p>
+<p><strong>Reset appearance</strong> at the bottom of the tab returns every control on the tab, sliders and accent alike, to its default.</p>
+</section>
+</section>
+<section id="keyboard-shortcuts">
+<h3>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Link to this heading">¶</a></h3>
+<p>Search commands or keys, click a binding, then press the new combination. Animoia reports conflicts with another command. Reset one command, or use <strong>Restore defaults</strong> to return every binding at once. <code class="docutils literal notranslate"><span class="pre">Mod</span></code> displays as <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> on Windows and Linux. Delete and Backspace are treated as aliases.</p>
+</section>
+<section id="performance">
+<span id="prefs-performance"></span><h3>Performance<a class="headerlink" href="#performance" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container" id="id6">
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text">Performance preferences</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33.7%" />
+<col style="width: 20.5%" />
+<col style="width: 45.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GPU memory for frame caching</p></td>
+<td><p>Percentage</p></td>
+<td><p>Sets how much graphics memory Animoia can use to keep previewed frames ready for smoother playback and scrubbing. The File menu’s <a class="reference internal" href="#gpu-frame-cache"><span class="std std-ref">frame cache meter</span></a> shows how much of this budget is actually in use.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Set GPU memory manually</p></td>
+<td><p>Gigabytes</p></td>
+<td><p>Overrides the percentage with an explicit figure, for when you know how much memory the machine can spare.</p></td>
+</tr>
+<tr class="row-even"><td><p>Adaptive resolution</p></td>
+<td><p>Toggle</p></td>
+<td><p>Temporarily lowers preview resolution during slow continuous edits.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Minimum resolution</p></td>
+<td><p>Menu</p></td>
+<td><p>Half, Third, Quarter, or Eighth; never degrades a preview already at/below the floor.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sensitivity</p></td>
+<td><p>25–400 ms</p></td>
+<td><p>Frames slower than this trigger a drop. Higher values are less eager.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Render location</p></td>
+<td><p>Folder/path</p></td>
+<td><p>Fallback when no valid last-rendered folder exists.</p></td>
+</tr>
+<tr class="row-even"><td><p>Presets folder</p></td>
+<td><p>Folder/path</p></td>
+<td><p>Watched recursively by the Effects panel; slash-separated preset names create subfolders.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Snapshot location</p></td>
+<td><p>Folder/path</p></td>
+<td><p>Preferred destination for Save Frame.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Saved folder paths persist between sessions. If the preferences file cannot be written — a read-only or restricted profile directory, for instance — your changes apply for the current session only.</p>
+</div>
+</section>
+</section>
+<section id="errors-and-recovery">
+<h2>Errors and recovery<a class="headerlink" href="#errors-and-recovery" title="Link to this heading">¶</a></h2>
+<section id="gpu-out-of-memory">
+<h3>GPU out of memory<a class="headerlink" href="#gpu-out-of-memory" title="Link to this heading">¶</a></h3>
+<p>If the graphics driver resets, Animoia pauses, clears GPU resources, learns a lower cache ceiling, and rebuilds automatically. The dialog reports <strong>Recovering</strong> and then <strong>Renderer recovered</strong>. Your project isn’t discarded. Lower <strong>Preferences &gt; Performance &gt; GPU memory for frame caching</strong> if it repeats.</p>
+</section>
+<section id="unsupported-or-unavailable-media">
+<h3>Unsupported or unavailable media<a class="headerlink" href="#unsupported-or-unavailable-media" title="Link to this heading">¶</a></h3>
+<p>An unavailable source renders nothing until it can be decoded or reimported. Some unsupported MOV codecs are demuxed to sequential frames automatically. Image-sequence failures and tracking reader errors are shown in their windows rather than replacing the project.</p>
+</section>
+<section id="modal-and-playback-locks">
+<h3>Modal and playback locks<a class="headerlink" href="#modal-and-playback-locks" title="Link to this heading">¶</a></h3>
+<p>Playback hides editing overlays and blocks document-changing shortcuts. Tracking, Footage Preview, Render, confirmation, close, and error windows own shortcuts while open. Crop mode blocks the rest of the editor until confirmed/cancelled. Saving remains available even while another modal is open.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="properties-and-animation.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Properties and animation</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, Animoia
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Animoia user guide</a><ul>
+<li><a class="reference internal" href="#getting-around">Getting around</a><ul>
+<li><a class="reference internal" href="#workspace-overview">Workspace overview</a></li>
+<li><a class="reference internal" href="#fx-console">FX Console</a><ul>
+<li><a class="reference internal" href="#what-it-searches">What it searches</a></li>
+<li><a class="reference internal" href="#matching-and-ranking">Matching and ranking</a></li>
+<li><a class="reference internal" href="#unavailable-commands">Unavailable commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#project-and-file-workflow">Project and file workflow</a><ul>
+<li><a class="reference internal" href="#new-project">New project</a></li>
+<li><a class="reference internal" href="#open-project">Open project</a><ul>
+<li><a class="reference internal" href="#relinking-moved-media">Relinking moved media</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#save-save-as-and-save-increment">Save, Save As, and Save Increment</a></li>
+<li><a class="reference internal" href="#pack-project">Pack Project</a></li>
+<li><a class="reference internal" href="#reduce-project-and-remove-unused">Reduce Project and Remove Unused</a></li>
+<li><a class="reference internal" href="#autosave-and-closing">Autosave and closing</a></li>
+<li><a class="reference internal" href="#gpu-frame-cache-readout">GPU frame cache readout</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#project-panel">Project panel</a><ul>
+<li><a class="reference internal" href="#import-media">Import media</a></li>
+<li><a class="reference internal" href="#search-and-organize">Search and organize</a></li>
+<li><a class="reference internal" href="#project-item-actions">Project item actions</a></li>
+<li><a class="reference internal" href="#footage-preview">Footage Preview</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compositions">Compositions</a><ul>
+<li><a class="reference internal" href="#create-and-edit-a-composition">Create and edit a composition</a></li>
+<li><a class="reference internal" href="#crop-composition">Crop composition</a></li>
+<li><a class="reference internal" href="#pre-compose">Pre-compose</a></li>
+<li><a class="reference internal" href="#composition-tabs">Composition tabs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#toolbar-and-tools">Toolbar and tools</a><ul>
+<li><a class="reference internal" href="#selection-tool">Selection tool</a></li>
+<li><a class="reference internal" href="#hand-and-temporary-pan">Hand and temporary pan</a></li>
+<li><a class="reference internal" href="#rotation-and-anchor-point-tools">Rotation and Anchor Point tools</a></li>
+<li><a class="reference internal" href="#shape-tool">Shape tool</a></li>
+<li><a class="reference internal" href="#pen-and-mask-tool">Pen and Mask tool</a><ul>
+<li><a class="reference internal" href="#drawing-a-path">Drawing a path</a></li>
+<li><a class="reference internal" href="#adding-deleting-and-converting-points">Adding, deleting, and converting points</a></li>
+<li><a class="reference internal" href="#selecting-and-moving-points">Selecting and moving points</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type-tool">Type tool</a></li>
+<li><a class="reference internal" href="#puppet-pin-tool">Puppet Pin tool</a></li>
+<li><a class="reference internal" href="#add-layer">Add Layer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#composition-viewer">Composition viewer</a><ul>
+<li><a class="reference internal" href="#zoom-pan-and-preview-quality">Zoom, pan, and preview quality</a></li>
+<li><a class="reference internal" href="#rulers-guides-and-overlays">Rulers, guides, and overlays</a></li>
+<li><a class="reference internal" href="#motion-paths-and-box-controls">Motion paths and box controls</a></li>
+<li><a class="reference internal" href="#save-frame">Save Frame</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#color-panel">Color panel</a><ul>
+<li><a class="reference internal" href="#how-it-differs-from-the-color-window">How it differs from the Color window</a></li>
+<li><a class="reference internal" href="#the-loaded-brush">The loaded brush</a></li>
+<li><a class="reference internal" href="#fill-and-stroke-targets">Fill and stroke targets</a></li>
+<li><a class="reference internal" href="#eyedropper">Eyedropper</a></li>
+<li><a class="reference internal" href="#swatches">Swatches</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#timeline">Timeline</a><ul>
+<li><a class="reference internal" href="#transport-ruler-and-work-area">Transport, ruler, and work area</a></li>
+<li><a class="reference internal" href="#layer-strip-editing">Layer strip editing</a></li>
+<li><a class="reference internal" href="#layer-switches-and-links">Layer switches and links</a><ul>
+<li><a class="reference internal" href="#sampling-and-continuous-rasterization">Sampling and Continuous Rasterization</a></li>
+<li><a class="reference internal" href="#parent-and-stencil-columns">Parent and Stencil columns</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#timeline-view-controls">Timeline view controls</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exporting">Exporting</a><ul>
+<li><a class="reference internal" href="#export-settings">Export settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#preferences">Preferences</a><ul>
+<li><a class="reference internal" href="#appearance">Appearance</a><ul>
+<li><a class="reference internal" href="#surfaces-and-text">Surfaces and text</a></li>
+<li><a class="reference internal" href="#accent">Accent</a></li>
+<li><a class="reference internal" href="#property-value-colors">Property value colors</a></li>
+<li><a class="reference internal" href="#window-controls">Window controls</a></li>
+<li><a class="reference internal" href="#reduce-ui-animations">Reduce UI animations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+<li><a class="reference internal" href="#performance">Performance</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#errors-and-recovery">Errors and recovery</a><ul>
+<li><a class="reference internal" href="#gpu-out-of-memory">GPU out of memory</a></li>
+<li><a class="reference internal" href="#unsupported-or-unavailable-media">Unsupported or unavailable media</a></li>
+<li><a class="reference internal" href="#modal-and-playback-locks">Modal and playback locks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    </body>
+</html>
