@@ -74,28 +74,86 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   requestAnimationFrame(animate)
 }
 
-const linuxToggle = document.getElementById('linux-toggle')
-const linuxOptions = document.getElementById('linux-options')
+const downloadMenus = [...document.querySelectorAll('.download-menu')]
+  .map(menu => {
+    const toggle = menu.querySelector('[aria-haspopup="true"]')
+    const options = toggle && document.getElementById(toggle.getAttribute('aria-controls'))
+    return toggle && options ? { toggle, options } : null
+  })
+  .filter(Boolean)
 
-if (linuxToggle && linuxOptions) {
-  const setOpen = open => {
-    linuxToggle.setAttribute('aria-expanded', String(open))
-    linuxOptions.hidden = !open
+const setMenuOpen = (entry, open) => {
+  entry.toggle.setAttribute('aria-expanded', String(open))
+  entry.options.hidden = !open
+}
+
+const closeAllMenus = except => {
+  for (const entry of downloadMenus) if (entry !== except) setMenuOpen(entry, false)
+}
+
+if (downloadMenus.length) {
+  for (const entry of downloadMenus) {
+    entry.toggle.addEventListener('click', event => {
+      event.stopPropagation()
+      const willOpen = entry.options.hidden
+      closeAllMenus(entry)
+      setMenuOpen(entry, willOpen)
+    })
+
+    // downloads stay on the page, so dismiss the menu once a choice is made
+    entry.options.addEventListener('click', event => {
+      if (event.target.closest('.download-option')) setMenuOpen(entry, false)
+    })
   }
 
-  linuxToggle.addEventListener('click', event => {
-    event.stopPropagation()
-    setOpen(linuxOptions.hidden)
-  })
-
   document.addEventListener('click', event => {
-    if (!linuxOptions.hidden && !event.target.closest('.download-menu')) setOpen(false)
+    if (!event.target.closest('.download-menu')) closeAllMenus()
   })
 
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && !linuxOptions.hidden) {
-      setOpen(false)
-      linuxToggle.focus()
+    if (event.key !== 'Escape') return
+    const open = downloadMenus.find(entry => !entry.options.hidden)
+    if (open) {
+      setMenuOpen(open, false)
+      open.toggle.focus()
     }
   })
+}
+
+const heroDefault = document.querySelector('.hero-default')
+const downloadLinks = document.querySelector('.download-links')
+const heroThanks = document.querySelector('.hero-thanks')
+
+if (heroDefault && downloadLinks && heroThanks) {
+  const thanksPlatform = heroThanks.querySelector('.thanks-platform')
+  const thanksManual = heroThanks.querySelector('.thanks-manual')
+  const thanksHeading = heroThanks.querySelector('.thanks-title')
+  const thanksBack = heroThanks.querySelector('.thanks-back')
+
+  // both panels stay in the layout and crossfade, so the swap is driven by a
+  // class rather than [hidden] — display:none would skip the transition
+  const swap = (out, into) => {
+    out.classList.add('is-inactive')
+    into.classList.remove('is-inactive')
+  }
+
+  const showThanks = link => {
+    thanksManual.href = link.href
+    thanksPlatform.textContent = link.dataset.platform
+    closeAllMenus()
+    swap(heroDefault, heroThanks)
+    requestAnimationFrame(() => thanksHeading.focus())
+  }
+
+  const showDownloads = () => {
+    swap(heroThanks, heroDefault)
+  }
+
+  for (const link of downloadLinks.querySelectorAll('a[data-platform]')) {
+    // the file is served as an attachment, so the page stays put: let the
+    // default click through and just swap the panel alongside it
+    link.addEventListener('click', () => showThanks(link))
+  }
+
+  thanksBack.addEventListener('click', showDownloads)
 }
