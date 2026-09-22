@@ -22,7 +22,7 @@ const columns: { title: string; links: FooterLink[] }[] = [
     links: [
       { label: 'Features', href: '/#features' },
       { label: 'Marketplace', href: '/marketplace' },
-      { label: 'Burning Questions', href: '/#faq' },
+      { label: 'FAQ', href: '/#faq' },
     ],
   },
   {
@@ -60,8 +60,8 @@ export function SiteFooter() {
     <footer className="relative isolate w-full border-t-2 border-white/10 bg-[#0d0d0d]">
       <GrainOverlay />
       <div className="mx-auto w-full max-w-[1920px] px-5 pb-6 pt-10 sm:px-8 md:pt-12 lg:px-12">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.4fr)_repeat(4,minmax(0,1fr))] lg:gap-8">
-          <div className="flex flex-col gap-5">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-9 sm:grid-cols-4 sm:gap-y-12 lg:grid-cols-[minmax(0,1.4fr)_repeat(4,minmax(0,1fr))] lg:gap-8">
+          <div className="col-span-2 flex flex-col gap-4 sm:col-span-4 sm:gap-5 lg:col-span-1">
             <Link href="/" aria-label="Animoia home" className="w-fit">
               <MaskIcon
                 src="/brand/animoia-wordmark.svg"
@@ -69,7 +69,7 @@ export function SiteFooter() {
                 label="Animoia"
               />
             </Link>
-            <p className="max-w-[240px] text-[14px] leading-[1.5] text-neutral-500">
+            <p className="max-w-[280px] text-[14px] leading-[1.5] text-neutral-500">
               The free motion graphics and compositing app for Windows, macOS, and Linux
             </p>
             <ul className="flex items-center gap-4">
@@ -80,7 +80,7 @@ export function SiteFooter() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Animoia on ${social.label}`}
-                    className="flex items-center text-neutral-500 transition-colors hover:text-neutral-200"
+                    className="-m-2 flex items-center p-2 text-neutral-500 transition-colors hover:text-neutral-200"
                   >
                     <MaskIcon src={social.icon} className={social.className} label={social.label} />
                   </a>
@@ -90,11 +90,11 @@ export function SiteFooter() {
           </div>
 
           {columns.map((column) => (
-            <nav key={column.title} aria-label={column.title} className="flex flex-col gap-4">
+            <nav key={column.title} aria-label={column.title} className="flex min-w-0 flex-col gap-3 sm:gap-4">
               <h2 className="font-display text-[15px] font-normal tracking-[-0.01em] text-neutral-200">
                 {column.title}
               </h2>
-              <ul className="flex flex-col gap-2.5">
+              <ul className="flex flex-col gap-1 sm:gap-2.5">
                 {column.links.map((link) => (
                   <li key={link.label}>
                     {link.external ? (
@@ -102,14 +102,14 @@ export function SiteFooter() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[14px] text-neutral-500 transition-colors hover:text-neutral-200"
+                        className="inline-block py-1 text-[14px] text-neutral-500 transition-colors hover:text-neutral-200 sm:py-0"
                       >
                         {link.label}
                       </a>
                     ) : (
                       <Link
                         href={link.href}
-                        className="text-[14px] text-neutral-500 transition-colors hover:text-neutral-200"
+                        className="inline-block py-1 text-[14px] text-neutral-500 transition-colors hover:text-neutral-200 sm:py-0"
                         onNavigate={(event) => {
                           const hashIndex = link.href.indexOf('#')
                           if (hashIndex === -1 || window.location.pathname !== '/') return
@@ -130,9 +130,20 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-5 text-[13px] text-neutral-600 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-5 text-[13px] leading-[1.5] text-neutral-600 sm:mt-8 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
           <p>&copy; {new Date().getFullYear()} Animoia. All rights reserved.</p>
-          <p>Made with care by an independent developer.</p>
+          <p>
+            Huge thanks to{' '}
+            <a
+              href="https://moportfolio.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-400 underline underline-offset-2 transition-colors hover:text-neutral-200"
+            >
+              Momo PTFL
+            </a>{' '}
+            for testing and reviewing Animoia!
+          </p>
         </div>
       </div>
     </footer>

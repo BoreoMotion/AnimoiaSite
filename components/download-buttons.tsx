@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useId, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { GrainOverlay } from '@/components/grain-overlay'
 import { MaskIcon } from '@/components/mask-icon'
 import { LATEST_RELEASE_BASE as RELEASE_BASE, SHA256_1_1_0 } from '@/lib/changelog'
@@ -9,17 +9,46 @@ export type DownloadTarget = {
   platform: string
   href: string
   sha256: string
-  install: string
+  install: ReactNode
 }
 
-const install = {
-  windows:
-    'Run the .exe. Windows may show a "Windows protected your PC" warning because the app is not signed: click "More info", then "Run anyway".',
-  mac:
-    'Open the .dmg and drag Animoia to Applications. On first launch macOS may block it because the app is not signed: right-click the app, choose Open, then confirm. If it is still blocked, go to System Settings → Privacy & Security and click "Open Anyway".',
-  appimage:
-    'Make the file executable (chmod +x animoia-*.AppImage, or right-click → Properties → allow executing), then run it. No install step needed.',
-  deb: 'Install with sudo apt install ./animoia-1.1.0-linux.deb (or open it with your package manager), then launch Animoia from your app menu.',
+const B = ({ children }: { children: ReactNode }) => (
+  <strong className="font-semibold text-white">{children}</strong>
+)
+
+const Cmd = ({ children }: { children: ReactNode }) => (
+  <code className="rounded-[3px] bg-white/[0.08] px-1.5 py-0.5 font-mono text-[0.9em] text-white">
+    {children}
+  </code>
+)
+
+const install: Record<'windows' | 'mac' | 'appimage' | 'deb', ReactNode> = {
+  windows: (
+    <>
+      Run the <B>.exe</B>. Windows may show a <B>&quot;Windows protected your PC&quot;</B> warning
+      because the app is not signed: click <B>More info</B>, then <B>Run anyway</B>.
+    </>
+  ),
+  mac: (
+    <>
+      Open the <B>.dmg</B> and drag Animoia to <B>Applications</B>. On first launch macOS may block
+      it because the app is not signed: <B>right-click the app</B>, choose <B>Open</B>, then confirm.
+      If it is still blocked, go to <B>System Settings → Privacy &amp; Security</B> and click{' '}
+      <B>Open Anyway</B>.
+    </>
+  ),
+  appimage: (
+    <>
+      <B>Make the file executable</B> (<Cmd>chmod +x animoia-*.AppImage</Cmd>, or right-click →
+      Properties → allow executing), then <B>run it</B>. No install step needed.
+    </>
+  ),
+  deb: (
+    <>
+      Install with <Cmd>sudo apt install ./animoia-1.1.0-linux.deb</Cmd> (or open it with your
+      package manager), then <B>launch Animoia</B> from your app menu.
+    </>
+  ),
 }
 
 type DownloadOption = DownloadTarget & {
@@ -35,7 +64,7 @@ type DownloadEntry = {
   href?: string
   platform?: string
   sha256?: string
-  install?: string
+  install?: ReactNode
   options?: DownloadOption[]
 }
 

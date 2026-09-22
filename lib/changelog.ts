@@ -46,8 +46,8 @@ export const SHA256_1_1_0: AssetChecksums = {
   windows: '91be61364b749f33a63d7c7aad90ee1f5220d09bd1b55cfd2a16a9c35c5227ff',
   macArm64: '585986915b9233948ed6f1eca5dc1e93c554de82009eebec61764ef5272275ff',
   macX64: 'ff0ab52809d0c4e1c5d3d244ba6c0dc1b268d3b862041f5889e53cee06b6c9af',
-  appImage: '314a39f69821455a1af0e20094c2de13bad68fe6579e788d7f3b43d03b349adf',
-  deb: '5e4fe95f4dd9028d1d6425149ec27e40505b542baff3819d6f16a7ca05829189',
+  appImage: '69eb580a9debfb8a99ddf54089f330c4337e9968a3482e51cdae01f99741ecbe',
+  deb: '0b35b8cdc7b7a550a0ddef1c68b00790f398c35bf376c12d77bb9d953ee05b9b',
 }
 
 /** GitHub release download base for the current version (tag has no "v" prefix). */

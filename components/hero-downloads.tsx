@@ -87,27 +87,31 @@ export function HeroDownloads() {
 
         <DownloadButtons onDownload={handleDownload} />
 
-        <p className="mt-5 flex flex-wrap items-center justify-center gap-x-2.5 text-[13px] text-neutral-500 sm:text-[14px]">
-          <Link href="/changelog" className="transition-colors hover:text-neutral-300">
-            Previous Versions
-          </Link>
-          <span aria-hidden className="text-neutral-400">
-            •
-          </span>
-          <Link href="/license" className="transition-colors hover:text-neutral-300">
-            Software License
-          </Link>
-          <span aria-hidden className="text-neutral-400">
-            •
-          </span>
-          <a
-            href={SBOM_URL}
-            download="animoia-1.1.0-sbom.json"
-            className="transition-colors hover:text-neutral-300"
-          >
-            Download SBOM
-          </a>
-        </p>
+  <p className="mt-5 flex w-full flex-col items-center gap-y-1.5 whitespace-nowrap text-[13px] text-neutral-500 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:gap-x-2.5 sm:gap-y-0 sm:text-[14px]">
+  <span className="flex items-center justify-end gap-x-2.5">
+  <Link href="/changelog" className="transition-colors hover:text-neutral-300">
+  Previous Versions
+  </Link>
+  <span aria-hidden className="hidden text-neutral-400 sm:inline">
+  •
+  </span>
+  </span>
+  <Link href="/license" className="transition-colors hover:text-neutral-300">
+  Software License
+  </Link>
+  <span className="flex items-center justify-start gap-x-2.5">
+  <span aria-hidden className="hidden text-neutral-400 sm:inline">
+  •
+  </span>
+  <a
+  href={SBOM_URL}
+  download="animoia-1.1.0-sbom.json"
+  className="transition-colors hover:text-neutral-300"
+  >
+  Download SBOM
+  </a>
+  </span>
+  </p>
       </div>
 
       <div
@@ -129,7 +133,7 @@ export function HeroDownloads() {
         >
           Thanks for downloading Animoia
         </h2>
-        <p className="mt-2 max-w-[560px] text-balance text-[14px] leading-[1.5] text-neutral-400 sm:text-[15px]">
+        <p className="mt-2 text-[14px] leading-[1.5] text-neutral-400 sm:text-[15px] lg:whitespace-nowrap">
           Your <strong className="font-semibold text-white">{target?.platform}</strong> download
           should be starting now. If nothing happened,{' '}
           <a
@@ -140,19 +144,22 @@ export function HeroDownloads() {
           </a>
           .
         </p>
-        <p className="mt-2 max-w-[560px] text-balance text-[14px] leading-[1.5] text-neutral-400 sm:text-[15px]">
-          <span className="font-semibold text-white">To install:</span> {target?.install}
-        </p>
 
-        <p className="mt-3 flex flex-wrap items-center justify-center gap-x-2.5 text-[13px] text-neutral-500 sm:text-[14px]">
-          <span>SHA256</span>
-          <span aria-hidden className="text-neutral-400">
-            •
-          </span>
-          <code className="break-all font-mono text-[12px] text-neutral-400 sm:text-[13px]">
-            {target?.sha256}
-          </code>
-        </p>
+        <div className="mt-5 w-full max-w-[600px] rounded-[4px] border border-white/10 bg-white/[0.04] px-5 py-4 text-left">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-neutral-500">
+            How to install
+          </p>
+          <p className="mt-1.5 text-pretty text-[14px] leading-[1.7] text-neutral-300 sm:text-[15px]">
+            {target?.install}
+          </p>
+        </div>
+
+        <code
+          aria-label="SHA256 checksum"
+          className="mt-4 block max-w-[600px] break-all font-mono text-[12px] text-neutral-600 sm:text-[13px]"
+        >
+          {target?.sha256}
+        </code>
 
         <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row">
           <a

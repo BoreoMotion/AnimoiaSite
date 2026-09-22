@@ -12,7 +12,7 @@ export function About() {
           id="about-heading"
           className="font-display text-center text-[34px] font-normal leading-[0.95] tracking-[-0.03em] text-white sm:text-[42px]"
         >
-          Why I Built This
+          The story behind Animoia.
         </h2>
       </Reveal>
 

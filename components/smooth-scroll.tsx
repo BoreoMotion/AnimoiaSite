@@ -28,6 +28,7 @@ export function SmoothScroll() {
     const resetScroll = () => {
       const hash = window.location.hash
       const hashTarget = hash ? document.querySelector<HTMLElement>(hash) : null
+      lenis?.resize()
       if (hashTarget) {
         lenis?.scrollTo(hashTarget, { immediate: true, force: true })
         if (!lenis) hashTarget.scrollIntoView()
@@ -55,6 +56,8 @@ export function SmoothScroll() {
         target.scrollIntoView()
         return
       }
+      // Lenis caches the scroll limit; after a route change it may still hold the previous page's height.
+      lenis.resize()
       lenis.scrollTo(target, {
         duration: 1,
         easing: (t: number) => 1 - Math.pow(1 - t, 3),
