@@ -5,7 +5,7 @@ import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 
 export const metadata: Metadata = {
-  title: 'Software License — Animoia',
+  title: 'Software License | Animoia',
   description:
     'The Animoia End User License Agreement covering the free application, paid plugins, activation, and ownership of your work.',
 }

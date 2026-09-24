@@ -48,7 +48,7 @@ export function Reveal({
       className={cn(
         'transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none',
         visible
-          ? 'translate-y-0 scale-100 opacity-100 blur-0'
+          ? 'translate-y-0 scale-100 opacity-100 filter-none'
           : 'translate-y-6 scale-[0.97] opacity-0 blur-[6px] motion-reduce:translate-y-0 motion-reduce:scale-100 motion-reduce:opacity-100 motion-reduce:blur-0',
         className,
       )}

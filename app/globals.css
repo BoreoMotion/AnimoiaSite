@@ -111,7 +111,7 @@
   --chart-5: oklch(0.269 0 0);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
@@ -147,8 +147,8 @@
     --chart-5: oklch(0.269 0 0);
     --sidebar: oklch(0.205 0 0);
     --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.985 0 0);
+    --sidebar-primary-foreground: oklch(0.205 0 0);
     --sidebar-accent: oklch(0.269 0 0);
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
@@ -165,6 +165,12 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+  img,
+  svg,
+  video {
+    -webkit-user-drag: none;
+    user-select: none;
   }
   html {
     --background: oklch(0.13 0 0);
@@ -198,6 +204,81 @@
 .grain-overlay[data-grain='ready'] {
   opacity: 0.1;
   animation: grain-reveal 120ms ease-out;
+}
+
+.ripple-surface .grain-overlay {
+  display: none;
+}
+
+.donation-ripple {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  opacity: 0;
+  background: radial-gradient(
+    circle closest-side,
+    transparent 49%,
+    rgb(0 0 0 / 3%) 57%,
+    rgb(0 0 0 / 9%) 66%,
+    rgb(0 0 0 / 12%) 74%,
+    rgb(0 0 0 / 9%) 82%,
+    rgb(0 0 0 / 4%) 90%,
+    rgb(0 0 0 / 1%) 96%,
+    transparent 100%
+  );
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.donation-ripple--highlight {
+  background: none;
+}
+
+/* Same box and tiling as the page grain (a brightened copy of it); only the mask travels. */
+.donation-ripple-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 70;
+  opacity: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: 284px 284px;
+  image-rendering: pixelated;
+  mix-blend-mode: plus-lighter;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  /* Eased falloff on both sides of the crest (70%) so the band has no hard outer edge. */
+  -webkit-mask-image: radial-gradient(
+    circle closest-side,
+    transparent 40%,
+    rgb(0 0 0 / 8%) 48%,
+    rgb(0 0 0 / 30%) 56%,
+    rgb(0 0 0 / 65%) 63%,
+    rgb(0 0 0 / 60%) 70%,
+    rgb(0 0 0 / 42%) 77%,
+    rgb(0 0 0 / 22%) 84%,
+    rgb(0 0 0 / 8%) 91%,
+    rgb(0 0 0 / 2%) 96%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    circle closest-side,
+    transparent 40%,
+    rgb(0 0 0 / 8%) 48%,
+    rgb(0 0 0 / 30%) 56%,
+    rgb(0 0 0 / 65%) 63%,
+    rgb(0 0 0 / 60%) 70%,
+    rgb(0 0 0 / 42%) 77%,
+    rgb(0 0 0 / 22%) 84%,
+    rgb(0 0 0 / 8%) 91%,
+    rgb(0 0 0 / 2%) 96%,
+    transparent 100%
+  );
+  will-change: transform, opacity;
 }
 
 @keyframes grain-reveal {
@@ -357,4 +438,71 @@
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: contain;
+}
+
+@keyframes donate-gradient {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Matching panels make the organic pastel gradient scroll seamlessly without repainting it. */
+.donate-gradient-layer {
+  width: 400%;
+  will-change: transform;
+  animation: donate-gradient 3s linear infinite;
+}
+
+.donate-gradient-layer::before,
+.donate-gradient-layer::after {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  width: 50%;
+  background-color: #ff84a7;
+  background-image:
+    radial-gradient(ellipse 30% 100% at 29% 50%, #ffb16e 0%, #ffb16e 25%, transparent 100%),
+    radial-gradient(ellipse 31% 110% at 62% 78%, #5bd0c8 0%, #7ac5df 35%, transparent 100%),
+    radial-gradient(ellipse 27% 110% at 78% 17%, #a58bdb 0%, transparent 100%),
+    radial-gradient(ellipse 26% 100% at 47% 15%, #ff65a2 0%, transparent 100%),
+    radial-gradient(ellipse 27% 110% at 51% 112%, #8273cf 0%, transparent 100%);
+}
+
+.donate-gradient-layer::before {
+  left: 0;
+}
+
+.donate-gradient-layer::after {
+  left: 50%;
+}
+
+.donate-gradient-layer[data-idle='true'] {
+  animation-play-state: paused;
+}
+
+@keyframes donate-heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.16);
+  }
+}
+
+/* Animate the path, not a rasterized SVG layer: the small heart stays crisp as it grows. */
+.donate-heartbeat {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: donate-heartbeat 1.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .donate-gradient-layer,
+  .donate-heartbeat {
+    animation: none;
+  }
 }

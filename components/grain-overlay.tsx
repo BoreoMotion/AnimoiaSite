@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type RefObject } from 'react'
 
 function finishGrain(element: HTMLDivElement | null) {
   if (!element || element.dataset.grainComplete === 'true') return
@@ -8,10 +8,17 @@ function finishGrain(element: HTMLDivElement | null) {
   element.dispatchEvent(new Event('grain-complete'))
 }
 
-const GRAIN_SRC = '/images/grain-optimized.webp'
+export const GRAIN_SRC = '/images/grain-optimized.webp'
 
-export function GrainOverlay() {
-  const ref = useRef<HTMLDivElement>(null)
+export function GrainOverlay({
+  className = 'absolute z-40',
+  ref: externalRef,
+}: {
+  className?: string
+  ref?: RefObject<HTMLDivElement | null>
+}) {
+  const localRef = useRef<HTMLDivElement>(null)
+  const ref = externalRef ?? localRef
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
@@ -53,7 +60,7 @@ export function GrainOverlay() {
       }}
       aria-hidden="true"
       data-grain={ready ? 'ready' : 'pending'}
-      className="grain-overlay pointer-events-none absolute inset-0 z-40 bg-repeat mix-blend-plus-lighter"
+      className={`grain-overlay pointer-events-none inset-0 bg-repeat mix-blend-plus-lighter ${className}`}
       style={{
         backgroundImage: ready ? `url('${GRAIN_SRC}')` : 'none',
         backgroundSize: '284px 284px',

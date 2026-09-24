@@ -37,7 +37,7 @@ const columns: { title: string; links: FooterLink[] }[] = [
     title: 'Resources',
     links: [
       { label: 'Documentation', href: DOCS_URL, external: true },
-      { label: 'Donate', href: 'https://donate.animoia.com', external: true },
+      { label: 'Donate', href: '/donate' },
       { label: 'Get in contact', href: 'mailto:baraa@animoia.com', external: true },
     ],
   },
@@ -51,8 +51,20 @@ const columns: { title: string; links: FooterLink[] }[] = [
 ]
 
 const socials = [
-  { label: 'Discord', href: DISCORD_URL, icon: '/icons/discord.svg', className: 'h-[16px] w-[21px]' },
-  { label: 'YouTube', href: YOUTUBE_URL, icon: '/icons/youtube.svg', className: 'h-[15px] w-[21px]' },
+  {
+    label: 'Discord',
+    href: DISCORD_URL,
+    icon: '/icons/discord.svg',
+    className: 'h-[16px] w-[21px]',
+    hoverClassName: 'hover:text-[#5865F2]',
+  },
+  {
+    label: 'YouTube',
+    href: YOUTUBE_URL,
+    icon: '/icons/youtube.svg',
+    className: 'h-[15px] w-[21px]',
+    hoverClassName: 'hover:text-[#FF0033]',
+  },
 ]
 
 export function SiteFooter() {
@@ -80,7 +92,7 @@ export function SiteFooter() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Animoia on ${social.label}`}
-                    className="-m-2 flex items-center p-2 text-neutral-500 transition-colors hover:text-neutral-200"
+                    className={`-m-2 flex items-center p-2 text-neutral-500 transition-colors ${social.hoverClassName}`}
                   >
                     <MaskIcon src={social.icon} className={social.className} label={social.label} />
                   </a>

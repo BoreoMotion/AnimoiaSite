@@ -36,7 +36,7 @@ export function HeaderProgress() {
       // Next.js Link calls preventDefault for client-side navigation, so don't bail on it.
       if (event.button !== 0) return
       const target = (event.target as HTMLElement | null)?.closest('a, button')
-      if (!target || target.hasAttribute('disabled')) return
+      if (!target || target.hasAttribute('disabled') || target.hasAttribute('data-no-progress')) return
 
       clearTimers()
       // Reset to idle first so a rapid second click restarts from zero.

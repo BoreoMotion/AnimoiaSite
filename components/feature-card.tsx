@@ -20,10 +20,11 @@ export function FeatureCard({ title, image, alt, description, delay = 0 }: Featu
       as="li"
       delay={delay}
       ready={imageLoaded}
-      className="flex flex-col overflow-hidden rounded-[12px] border border-white/[0.06] bg-[#0f0f10] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9)]"
+      className="flex flex-col overflow-hidden rounded-[12px] border border-white/[0.06] bg-[#0f0f0f] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9)]"
     >
       <div className="relative aspect-[800/350] w-full overflow-hidden">
         <Image
+          draggable={false}
           src={image}
           alt={alt}
           fill

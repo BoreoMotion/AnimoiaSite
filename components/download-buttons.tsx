@@ -236,7 +236,7 @@ function DownloadMenu({ item, open, onToggle, onChoose }: DownloadMenuProps) {
         role="menu"
         aria-labelledby={toggleId}
         hidden={!open}
-        className="absolute left-0 right-0 top-[calc(100%+6px)] isolate flex flex-col gap-1 overflow-hidden rounded-[6px] border border-white/10 bg-[#141415] p-1 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.9)] animate-in fade-in slide-in-from-top-1 duration-150 motion-reduce:animate-none"
+        className="absolute left-0 right-0 top-[calc(100%+6px)] isolate flex flex-col gap-1 overflow-hidden rounded-[6px] border border-white/10 bg-[#141414] p-1 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.9)] animate-in fade-in slide-in-from-top-1 duration-150 motion-reduce:animate-none"
       >
         <GrainOverlay />
         {item.options!.map((option) => (

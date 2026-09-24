@@ -12,11 +12,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://animoia.com'),
-  title: 'Animoia — Free motion graphics and compositing app',
+  title: 'Animoia | Free motion graphics and compositing app',
   description:
     'Animoia is a FREE motion graphics and compositing app built around a familiar layer based workflow. Design, animate, and composite in one place.',
   icons: {
-    icon: [{ url: '/brand/animoia-mark.svg', type: 'image/svg+xml' }],
+    icon: [{ url: '/favicon.png?v=2', type: 'image/png', sizes: '1024x1024' }],
+    apple: [{ url: '/favicon.png?v=2', sizes: '1024x1024' }],
   },
 }
 

@@ -43,11 +43,11 @@ export const SHA256_1_0_0: AssetChecksums = {
 }
 
 export const SHA256_1_1_0: AssetChecksums = {
-  windows: '91be61364b749f33a63d7c7aad90ee1f5220d09bd1b55cfd2a16a9c35c5227ff',
-  macArm64: '585986915b9233948ed6f1eca5dc1e93c554de82009eebec61764ef5272275ff',
-  macX64: 'ff0ab52809d0c4e1c5d3d244ba6c0dc1b268d3b862041f5889e53cee06b6c9af',
-  appImage: '69eb580a9debfb8a99ddf54089f330c4337e9968a3482e51cdae01f99741ecbe',
-  deb: '0b35b8cdc7b7a550a0ddef1c68b00790f398c35bf376c12d77bb9d953ee05b9b',
+  windows: 'f4d333b32001f7fb2449d7dacc3c6051d9000a8125a4a585dc880fe67a624765',
+  macArm64: '823d714a6af9e88268f7395e749c8e1096a172a456283ad1b19a74e095641a46',
+  macX64: '7e664c1ffa878d877285e95f23788fc71400c6e086bde7598ee5276eec061dcb',
+  appImage: '3177e325c6d42f3c047038bd0ebc497dce9bef7b53a70444cd43b143bd833930',
+  deb: '5b1cb13349696b732a4a27b172fa55119ca648dbbe1827e269a2bb4b0bf3f656',
 }
 
 /** GitHub release download base for the current version (tag has no "v" prefix). */
@@ -103,6 +103,7 @@ export const RELEASES: Release[] = [
       {
         title: 'Effects & Performance',
         items: [
+          'Massive performance boost on compositions with many layers.',
           'New files now open at full resolution.',
           'Glow effect revamped: more optimized and more powerful.',
           'Twitch effect significantly improved.',
@@ -159,6 +160,7 @@ export const RELEASES: Release[] = [
         items: [
           'Rendering window redesigned to give more control over output files, with a live preview of frames as they render.',
           'Rendering to an image sequence now saves frames directly into a folder as they finish, instead of a zipped file.',
+          'Exported PNG sequences can now have a transparent background.',
         ],
       },
       {

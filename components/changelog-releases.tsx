@@ -14,7 +14,7 @@ export function ChangelogReleases() {
           <a
             key={release.tag}
             href={`#${release.tag}`}
-            className="rounded-[3px] border border-white/[0.09] bg-[#0f0f10] px-3 py-1.5 font-mono text-[13px] text-neutral-400 transition-colors hover:border-white/20 hover:text-white"
+            className="rounded-[3px] border border-white/[0.09] bg-[#0f0f0f] px-3 py-1.5 font-mono text-[13px] text-neutral-400 transition-colors hover:border-white/20 hover:text-white"
           >
             {release.tag}
           </a>
@@ -35,7 +35,7 @@ function ReleaseEntry({ release }: { release: Release }) {
 
   return (
     <li id={release.tag} className="scroll-mt-24">
-      <article aria-labelledby={headingId} className="rounded-[6px] border border-white/[0.09] bg-[#0f0f10]">
+      <article aria-labelledby={headingId} className="rounded-[6px] border border-white/[0.09] bg-[#0f0f0f]">
         <div className="flex flex-col gap-3 px-6 py-6 sm:px-8">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] text-neutral-500">
             {release.latest ? <Pill>Latest</Pill> : null}

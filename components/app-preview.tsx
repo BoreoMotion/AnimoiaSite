@@ -6,7 +6,7 @@ export function AppPreview() {
       aria-label="Animoia application preview"
       className="mx-auto mt-6 w-full max-w-[1260px] px-4 sm:px-6 md:mt-7"
     >
-      <div className="app-preview-enter relative z-50 overflow-hidden rounded-[10px] border-2 border-white/10 bg-[#0b0b0d] shadow-[0_-10px_60px_-20px_rgba(0,0,0,0.8)]">
+      <div className="app-preview-enter relative z-50 overflow-hidden rounded-[10px] border border-white/10 bg-[#0b0b0b] shadow-[0_-10px_60px_-20px_rgba(0,0,0,0.8)]">
         {/* next/image is unoptimized in this project, so hand-encoded AVIF/WebP
             variants are served directly; the aspect ratio is reserved via
             width/height to avoid layout shift while the image loads. */}
@@ -22,6 +22,7 @@ export function AppPreview() {
             sizes={SIZES}
           />
           <img
+            draggable={false}
             data-intro-asset
             src="/images/animoia-app-1918.webp"
             alt="Animoia editor showing a composition with a glass 'Nature' label and heart, the properties panel, effects browser, and timeline"

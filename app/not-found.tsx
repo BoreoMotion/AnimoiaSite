@@ -5,7 +5,7 @@ import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 
 export const metadata: Metadata = {
-  title: 'Lost in the timeline — Animoia',
+  title: 'Lost in the timeline | Animoia',
   description: 'This page slipped off the timeline. Head back to Animoia.',
 }
 
@@ -83,7 +83,7 @@ function Timeline() {
 
   return (
     <div aria-hidden className="mt-8 w-full max-w-[460px]">
-      <div className="relative rounded-[6px] border border-white/[0.09] bg-[#0f0f10] px-4 pb-3 pt-4">
+      <div className="relative rounded-[6px] border border-white/[0.09] bg-[#0f0f0f] px-4 pb-3 pt-4">
         <div className="flex items-end justify-between">
           {ticks.map((tick) => (
             <span

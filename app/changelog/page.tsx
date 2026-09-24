@@ -5,7 +5,7 @@ import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 
 export const metadata: Metadata = {
-  title: 'Changelog — Animoia',
+  title: 'Changelog | Animoia',
   description: 'Release notes, previous versions, and download checksums for every version of Animoia.',
 }
 

@@ -24,7 +24,7 @@ export function LicenseDocument() {
         ))}
       </div>
 
-      <nav aria-label="Sections" className="mt-10 rounded-[6px] border border-white/[0.09] bg-[#0f0f10] p-5">
+      <nav aria-label="Sections" className="mt-10 rounded-[6px] border border-white/[0.09] bg-[#0f0f0f] p-5">
         <h2 className="font-display text-[15px] font-normal tracking-[-0.01em] text-neutral-200">Contents</h2>
         <ol className="mt-3 grid gap-x-8 gap-y-1.5 sm:grid-cols-2">
           {LICENSE_SECTIONS.map((section) => (

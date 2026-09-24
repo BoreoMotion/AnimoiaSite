@@ -7,7 +7,7 @@ import { HeaderProgress } from '@/components/header-progress'
 
 const navLinks = [
   { label: 'Marketplace', href: '/marketplace' },
-  { label: 'Donate', href: 'https://donate.animoia.com' },
+  { label: 'Donate', href: '/donate' },
   { label: 'Documentation', href: 'https://animoia.gitbook.io/animoia-docs' },
 ]
 
@@ -36,8 +36,8 @@ export function SiteHeader() {
           />
         </Link>
 
-        <div className="flex items-center gap-5 sm:gap-8 lg:gap-12">
-          <ul className="hidden items-center gap-6 md:flex lg:gap-12">
+        <div className="flex items-center gap-5 lg:gap-8">
+          <ul className="hidden items-center gap-5 md:flex lg:gap-8">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <Link
@@ -49,13 +49,13 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-4 sm:gap-5">
+          <div className="flex items-center gap-5 lg:gap-8">
             <a
               href="https://discord.gg/ZUn8Frpdbx"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Join the Animoia Discord"
-              className="flex items-center text-neutral-500 transition-colors hover:text-neutral-200"
+              className="flex items-center text-neutral-500 transition-colors hover:text-[#5865F2]"
             >
               <MaskIcon
                 src="/icons/discord.svg"
@@ -68,7 +68,7 @@ export function SiteHeader() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Animoia on YouTube"
-              className="flex items-center text-neutral-500 transition-colors hover:text-neutral-200"
+              className="flex items-center text-neutral-500 transition-colors hover:text-[#FF0033]"
             >
               <MaskIcon
                 src="/icons/youtube.svg"

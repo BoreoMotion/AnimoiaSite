@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { Plug } from 'lucide-react'
 import { useState } from 'react'
 import { Reveal } from '@/components/reveal'
@@ -10,7 +11,7 @@ type ProductCardProps = Product & {
   delay?: number
 }
 
-export function ProductCard({ title, price, image, alt, description, category, purchaseUrl, delay = 0 }: ProductCardProps) {
+export function ProductCard({ slug, title, price, image, alt, description, category, delay = 0 }: ProductCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false)
 
   return (
@@ -18,16 +19,21 @@ export function ProductCard({ title, price, image, alt, description, category, p
       as="li"
       delay={delay}
       ready={imageLoaded}
-      className="flex flex-col overflow-hidden rounded-[12px] border border-white/[0.06] bg-[#0f0f10] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9)]"
+      className="flex flex-col overflow-hidden rounded-[12px] border border-white/[0.06] bg-[#0f0f0f] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9)] transition-[opacity,transform,filter,border-color] has-[a:hover]:border-white/[0.14]"
     >
+      <Link
+        href={`/marketplace/${slug}`}
+        className="group flex flex-1 flex-col rounded-[12px] outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-inset"
+      >
       <div className="relative aspect-video w-full overflow-hidden">
         <Image
+          draggable={false}
           src={image}
           alt={alt}
           fill
           loading="eager"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
-          className="object-cover"
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
           onLoad={() => setImageLoaded(true)}
           onError={() => setImageLoaded(true)}
         />
@@ -43,16 +49,8 @@ export function ProductCard({ title, price, image, alt, description, category, p
           </span>
         </div>
         <p className="mt-2.5 text-[12px] leading-[1.4] text-neutral-400">{description}</p>
-        <a
-          href={purchaseUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Purchase ${title} (opens in a new tab)`}
-          className="mt-4 inline-flex h-9 items-center justify-center rounded-[6px] border border-white/10 bg-white px-4 text-[13px] font-medium text-black transition-colors hover:bg-neutral-200"
-        >
-          Purchase
-        </a>
       </div>
+      </Link>
     </Reveal>
   )
 }

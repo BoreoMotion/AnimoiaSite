@@ -74,7 +74,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
   const panelId = useId()
 
   return (
-    <div className="rounded-[6px] border border-white/[0.09] bg-[#0f0f10]">
+    <div className="rounded-[6px] border border-white/[0.09] bg-[#0f0f0f]">
       <button
         type="button"
         aria-expanded={open}
