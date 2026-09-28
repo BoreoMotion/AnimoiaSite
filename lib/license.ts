@@ -1,4 +1,4 @@
-export const LICENSE_LAST_UPDATED = 'September 22, 2026'
+export const LICENSE_LAST_UPDATED = 'September 28, 2026'
 
 export const LICENSE_INTRO = [
   'This End User License Agreement (the "Agreement") is a legally binding contract between you (either an individual or a single legal entity, "You" or "Licensee") and Baraa Khaled (the "Licensor"), regarding your use of the Animoia software application and its Paid Plugins.',
@@ -66,13 +66,15 @@ export const LICENSE_SECTIONS: LicenseSection[] = [
       p('4.2 Data transmitted during Activation. During Activation and Deactivation only, the Software transmits the following to the Licensor\'s license server:'),
       list([
         'Your License Key;',
-        'a hashed, anonymized Device identifier derived from Your hardware, which cannot be reversed to identify Your hardware components; and',
-        'the name of the Device as set in Your operating system (for example "Baraa\'s PC"), so that You can recognize Your Devices when managing activations.',
+        'a hashed, pseudonymized Device identifier derived from Your hardware, which cannot be reversed to identify Your hardware components;',
+        'the name of the Device as set in Your operating system (for example, "Baraa\'s PC"), so that You can recognize Your Devices when managing activations; and',
+        'the version number of Animoia installed on the Device.',
       ]),
-      p('No other personal information, files, project data, or usage statistics are transmitted. The Licensor stores this information solely to enforce the Device limit in Section 3.2 and to allow You to manage Your activations. The Licensor does not sell or share this data with third parties, except as required by law.'),
+      p('The license server may also briefly process Your IP address to prevent abuse, as described in the Privacy Policy. No files, project data, or usage statistics are transmitted. The Licensor stores this information solely to enforce the Device limit in Section 3.2, to allow You to manage Your activations, and to protect the license server from abuse. The Licensor does not sell this data and does not share it with third parties, except with the service providers that operate the license server and verify purchases (Cloudflare, Inc. and Gumroad, Inc.), or as required by law.'),
       p('4.3 Self-service Deactivation. You may deactivate a Device at any time from within Animoia (an internet connection is required for this step) to free up an activation slot, for example when replacing or reinstalling a computer. Once deactivated, the Paid Plugin will stop functioning on that Device until it is activated again.'),
       p('4.4 Lost access. If a Device is lost, stolen, or destroyed before it could be deactivated, contact the Licensor at the address in Section 13 and the Licensor will, at its reasonable discretion, reset the activation.'),
       p('4.5 Storefront data. Your purchase is processed by the storefront (Gumroad, Inc.) under its own terms and privacy policy. The Licensor receives the purchase information that the storefront provides to sellers (such as Your email and the generated License Key) in order to deliver and support Your purchase.'),
+      p('4.6 Privacy Policy. The Animoia Privacy Policy, available at animoia.com/privacy, describes in more detail how the Licensor handles personal data and forms part of this Agreement.'),
     ],
   },
   {

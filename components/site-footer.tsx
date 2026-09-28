@@ -26,11 +26,11 @@ const columns: { title: string; links: FooterLink[] }[] = [
     ],
   },
   {
-    title: 'Downloads',
+    title: 'Legal',
     links: [
-      { label: 'SBOM', href: SBOM_URL, external: true },
-      { label: 'Previous Versions', href: '/changelog' },
       { label: 'Software License', href: '/license' },
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'SBOM', href: SBOM_URL, external: true },
     ],
   },
   {
