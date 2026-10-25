@@ -25,9 +25,9 @@ export function AppPreview() {
             draggable={false}
             data-intro-asset
             src="/images/animoia-app-1918.webp"
-            alt="Animoia editor showing a composition with a glass 'Nature' label and heart, the properties panel, effects browser, and timeline"
-            width={1918}
-            height={1079}
+            alt="Animoia 1.2 editor showing a fruit still life with large 1.2 text, the properties panel, effects browser, and layered timeline"
+            width={1920}
+            height={1080}
             decoding="async"
             fetchPriority="high"
             className="h-auto w-full"

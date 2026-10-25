@@ -3,12 +3,10 @@
 import Link from 'next/link'
 import { GrainOverlay } from '@/components/grain-overlay'
 import { MaskIcon } from '@/components/mask-icon'
-import { LATEST_RELEASE_BASE } from '@/lib/changelog'
 
 const DISCORD_URL = 'https://discord.gg/ZUn8Frpdbx'
 const YOUTUBE_URL = 'https://youtube.com/@animoiaofficial'
 const DOCS_URL = 'https://animoia.gitbook.io/animoia-docs'
-const SBOM_URL = `${LATEST_RELEASE_BASE}/animoia-1.1.0-sbom.json`
 
 type FooterLink = {
   label: string
@@ -30,7 +28,7 @@ const columns: { title: string; links: FooterLink[] }[] = [
     links: [
       { label: 'Software License', href: '/license' },
       { label: 'Privacy Policy', href: '/privacy' },
-      { label: 'SBOM', href: SBOM_URL, external: true },
+      { label: 'Third-Party Licenses', href: '/third-party-licenses' },
     ],
   },
   {

@@ -1,4 +1,4 @@
-export const LICENSE_LAST_UPDATED = 'September 28, 2026'
+export const LICENSE_LAST_UPDATED = 'October 25, 2026'
 
 export const LICENSE_INTRO = [
   'This End User License Agreement (the "Agreement") is a legally binding contract between you (either an individual or a single legal entity, "You" or "Licensee") and Baraa Khaled (the "Licensor"), regarding your use of the Animoia software application and its Paid Plugins.',
@@ -40,7 +40,8 @@ export const LICENSE_SECTIONS: LicenseSection[] = [
     blocks: [
       p('2.1 Free license. Subject to this Agreement, the Licensor grants You a non-exclusive, non-transferable, worldwide, royalty-free license to install and use Animoia on any number of Devices You own or control, for personal or commercial purposes, free of charge.'),
       p('2.2 Fully offline. Animoia does not require an internet connection, account, or registration to install or use. The Application does not collect analytics, telemetry, or usage data. The ONLY feature of the Software that requires an internet connection is the one-time Activation (and optional Deactivation) of a Paid Plugin, as described in Section 4.'),
-      p('2.3 No obligation. The free Application is provided as a courtesy. The Licensor may modify, add, or remove features of the free Application at any time without notice.'),
+      p('2.3 Local integrations. Animoia includes two optional integrations that communicate only with other software on Your own Device: (a) Discord Rich Presence, which, if the Discord desktop app is running, tells Discord that You are using Animoia so that Discord can display it on Your profile; and (b) an MCP (Model Context Protocol) server, which is off by default and, when You enable it, lets AI tools You choose read and, if You allow it, edit Your open project. Any third-party software You connect in this way is governed by its own terms, and the Licensor is not responsible for what that software does with the information it receives. These integrations are described in the Privacy Policy.'),
+      p('2.4 No obligation. The free Application is provided as a courtesy. The Licensor may modify, add, or remove features of the free Application at any time without notice.'),
     ],
   },
   {
@@ -63,13 +64,14 @@ export const LICENSE_SECTIONS: LicenseSection[] = [
     title: 'Activation, Deactivation, and Data',
     blocks: [
       p('4.1 One-time online Activation. To enable a Paid Plugin, You must enter Your License Key in Animoia while connected to the internet. Activation happens once per Device. After successful Activation, the Paid Plugin works fully offline and no further connection is required.'),
-      p('4.2 Data transmitted during Activation. During Activation and Deactivation only, the Software transmits the following to the Licensor\'s license server:'),
+      p('4.2 Data transmitted during Activation. During Activation only, the Software transmits the following to the Licensor\'s license server:'),
       list([
         'Your License Key;',
         'a hashed, pseudonymized Device identifier derived from Your hardware, which cannot be reversed to identify Your hardware components;',
-        'the name of the Device as set in Your operating system (for example, "Baraa\'s PC"), so that You can recognize Your Devices when managing activations; and',
+        'a Device name made up of Your computer\'s name as set in Your operating system and the name of the operating system (for example, "studio-pc (Windows)"), so that You can recognize Your Devices when managing activations; and',
         'the version number of Animoia installed on the Device.',
       ]),
+      p('During Deactivation, only Your License Key and the hashed Device identifier are transmitted.'),
       p('The license server may also briefly process Your IP address to prevent abuse, as described in the Privacy Policy. No files, project data, or usage statistics are transmitted. The Licensor stores this information solely to enforce the Device limit in Section 3.2, to allow You to manage Your activations, and to protect the license server from abuse. The Licensor does not sell this data and does not share it with third parties, except with the service providers that operate the license server and verify purchases (Cloudflare, Inc. and Gumroad, Inc.), or as required by law.'),
       p('4.3 Self-service Deactivation. You may deactivate a Device at any time from within Animoia (an internet connection is required for this step) to free up an activation slot, for example when replacing or reinstalling a computer. Once deactivated, the Paid Plugin will stop functioning on that Device until it is activated again.'),
       p('4.4 Lost access. If a Device is lost, stolen, or destroyed before it could be deactivated, contact the Licensor at the address in Section 13 and the Licensor will, at its reasonable discretion, reset the activation.'),
@@ -92,7 +94,7 @@ export const LICENSE_SECTIONS: LicenseSection[] = [
     blocks: [
       p('You may not, and may not permit any third party to:'),
       list([
-        '(a) reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code, algorithms, or shader code of the Software, except to the extent that applicable law expressly permits such activity notwithstanding this limitation;',
+        '(a) reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code, algorithms, or shader code of the Software, except to the extent that applicable law expressly permits such activity notwithstanding this limitation, or that a third-party license described in Section 7 permits it for the component it covers;',
         '(b) redistribute, resell, rent, lease, lend, sublicense, or share any Paid Plugin or License Key, including publishing a License Key on any website, forum, torrent, key-sharing service, or bundle, or transferring it to another person other than as permitted in Section 3.3(b);',
         '(c) circumvent, disable, or tamper with the license verification, Activation, Device identification, or any other technical protection mechanism of the Software, including through cracks, patches, key generators, license-server emulation, or spoofing of Device identifiers;',
         '(d) remove or alter any copyright, trademark, or other proprietary notices in the Software; or',
@@ -105,7 +107,7 @@ export const LICENSE_SECTIONS: LicenseSection[] = [
     number: 7,
     title: 'Intellectual Property',
     blocks: [
-      p('The Software is licensed, not sold. The Licensor and its licensors retain all right, title, and interest in and to the Software, including all copyrights, trademarks (including the name "Animoia" and its logo), and trade secrets. All rights not expressly granted in this Agreement are reserved. Third-party open-source components included in the Software are licensed under their own terms, which are listed in the Application\'s about or licenses section and take precedence for those components.'),
+      p('The Software is licensed, not sold. The Licensor and its licensors retain all right, title, and interest in and to the Software, including all copyrights, trademarks (including the name "Animoia" and its logo), and trade secrets. All rights not expressly granted in this Agreement are reserved. Third-party open-source components included in the Software (such as Electron, Chromium, FFmpeg, and the libraries and fonts listed in the notices) are licensed to You by their authors under their own terms, not under this Agreement. Those terms are reproduced in the THIRD-PARTY-NOTICES.txt file included with every installation and at animoia.com/third-party-licenses, and they take precedence over this Agreement for those components. Nothing in this Agreement restricts any right those licenses grant You, including any right to obtain the source code of, modify, replace, or reverse engineer a component for the purposes those licenses permit.'),
     ],
   },
   {

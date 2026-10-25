@@ -43,15 +43,34 @@ export const SHA256_1_0_0: AssetChecksums = {
 }
 
 export const SHA256_1_1_0: AssetChecksums = {
-  windows: 'f4d333b32001f7fb2449d7dacc3c6051d9000a8125a4a585dc880fe67a624765',
+  windows: '25ae73e6fa01d14f4ecba7e9d412a0c4108739bad97349b6ebb34c64c8746dd7',
   macArm64: '823d714a6af9e88268f7395e749c8e1096a172a456283ad1b19a74e095641a46',
   macX64: '7e664c1ffa878d877285e95f23788fc71400c6e086bde7598ee5276eec061dcb',
   appImage: '3177e325c6d42f3c047038bd0ebc497dce9bef7b53a70444cd43b143bd833930',
   deb: '5b1cb13349696b732a4a27b172fa55119ca648dbbe1827e269a2bb4b0bf3f656',
 }
 
+export const SHA256_1_2_0: AssetChecksums & { sbom: string } = {
+  windows: '962e902a8dae41fc2c0ad03b63409136fbc40ad7b9820c7f5bbe30caeafd79fc',
+  macArm64: '3ff7433e8655370aadfb558cc6fa0b80044a3463c40f9718b7c0e7830ebbfd66',
+  macX64: '8c3fcfb9db9e6530093d5ddde3c191a1c07a7eefd598f80aaddac02cf8fa2b8f',
+  appImage: '3f704b2b83a7ee2a53066b75f962a847b9eca9d8dab64c515adbdc4d810f7056',
+  deb: 'e65811321d4b3a5ca16db25d450952b43ae5e384bc4edac7659fca9c95b363b7',
+  sbom: '896976c28b9775c1575a04feea0ff253f2b2306cff98fb7086725a484ccae6f2',
+}
+
+export const LATEST_RELEASE_VERSION = '1.2.0'
+export const LATEST_RELEASE_CHECKSUMS = SHA256_1_2_0
+
 /** GitHub release download base for the current version (tag has no "v" prefix). */
-export const LATEST_RELEASE_BASE = `${RELEASES_URL}/download/1.1.0`
+export const LATEST_RELEASE_BASE = `${RELEASES_URL}/download/${LATEST_RELEASE_VERSION}`
+
+export const LATEST_SBOM_ASSET = {
+  name: `animoia-${LATEST_RELEASE_VERSION}-sbom.json`,
+  platform: 'Software Bill of Materials (SBOM)',
+  href: `${LATEST_RELEASE_BASE}/animoia-${LATEST_RELEASE_VERSION}-sbom.json`,
+  sha256: LATEST_RELEASE_CHECKSUMS.sbom,
+} satisfies ReleaseAsset
 
 const NO_CHECKSUMS: AssetChecksums = {
   windows: SHA256_PLACEHOLDER,
@@ -74,12 +93,128 @@ function assetsFor(version: string, base: string | null, sha: AssetChecksums = N
 
 export const RELEASES: Release[] = [
   {
+    version: LATEST_RELEASE_VERSION,
+    tag: LATEST_RELEASE_VERSION,
+    title: `Animoia ${LATEST_RELEASE_VERSION}`,
+    date: 'October 25, 2026',
+    isoDate: '2026-10-25',
+    latest: true,
+    summary:
+      '3D layers and camera tracking, JavaScript formulas, MCP integration, optical flow, simulated particles, OpenColorIO, modular workspaces, and major performance improvements.',
+    sections: [
+      {
+        title: '3D Layers, Cameras & Tracking',
+        items: [
+          'Turn any layer into a 3D layer using the cube icon next to its name.',
+          'Add and animate 3D camera layers, with control over field of view, depth of field, and other camera settings.',
+          'Track camera motion from video with the new 3D tracking tools in the Tracking window.',
+          'Import and export camera and null-object motion between Animoia and Blender through the File menu, using the free Blender add-on.',
+          'Enable the 3D View from File → Window to work in a full 3D editor with Blender-style navigation, shortcuts, and gizmos.',
+        ],
+      },
+      {
+        title: 'Formulas & MCP',
+        items: [
+          'New Formula modifier brings JavaScript expressions to Animoia, with built-in functions for procedural animation.',
+          'Save formulas as reusable presets.',
+          'Export an AI skill to teach Claude, Codex, Gemini, or another AI assistant how to write Animoia formulas.',
+          'Built-in MCP server is now available, with setup instructions and tips in the MCP tab of Preferences.',
+        ],
+      },
+      {
+        title: 'Optical Flow & Retiming',
+        items: [
+          'Video layers now include a pinned Optical Flow effect to match footage to the composition frame rate, including slow-motion and retimed video.',
+          'Choose from three interpolation modes: frame blending, motion estimation, or RIFE AI frame interpolation.',
+          'All interpolation runs locally on your device, with minimal additional render time.',
+        ],
+      },
+      {
+        title: 'Performance & Disk Caching',
+        items: [
+          'Rendering now runs on a separate thread from the UI, keeping the interface responsive during heavy renders.',
+          'Significantly reduced RAM usage and improved performance in projects with hundreds of layers.',
+          'Added disk caching for smoother playback and more responsive scrubbing. Thanks to Momo for the idea!',
+          'Smarter adaptive resolution.',
+        ],
+      },
+      {
+        title: 'Simulated Particles',
+        items: [
+          'New Particles simulated effect adds a full particle simulation alongside the existing particle-grain effect.',
+          'Control force fields, collisions, particle shape, size, inertia, lifespan, and color.',
+        ],
+      },
+      {
+        title: 'Color Management',
+        items: [
+          'Added OpenColorIO support through four new color effects.',
+          'New project-wide Color Management window under File → Settings → Color Management.',
+          'Added a LUT effect.',
+          'Copy and paste colors by hovering over a color and pressing Ctrl+C or Ctrl+V.',
+          'Added swatches to the Color panel.',
+          'More control over gradient-point interpolation and color spaces.',
+        ],
+      },
+      {
+        title: 'Modular Workspaces & UI',
+        items: [
+          'Move, open, and close UI panels to build a workspace that fits your workflow.',
+          'Save custom workspace layouts.',
+          'Effect colors can now be changed, with new color tags for layers, effects, and project files.',
+          'Added an optional smooth-zoom setting in Preferences.',
+          'General UI refinements.',
+        ],
+      },
+      {
+        title: 'Puppet Pin & PSD Import',
+        items: [
+          'Puppet Pin has been rewritten for more control, better performance, and improved deformation results.',
+          'Import PSD files with automatically recreated effects, rasterized layers, or as a single flattened image.',
+        ],
+      },
+      {
+        title: 'New Effects & Pseudo Effects',
+        items: [
+          'Added High Pass Filter, Mosaic, Sticky Note, Linear Color Key, and Distance to Edge effects.',
+          'Added Wave Texture, Hexagonal Grid, Turing Pattern, and Temporal Blur effects.',
+          'New Pseudo Effect lets you define custom inputs to create your own effects.',
+          'Added new options to existing effects, including Particle Field and Find Edges.',
+          'Camera Lens Blur now produces smoother, grain-free results.',
+        ],
+      },
+      {
+        title: 'Animation & Project Workflow',
+        items: [
+          'Added markers.',
+          'Added support for decimal frame rates.',
+          'Enter easing values numerically.',
+          'Dropdown menus and boolean values can now be animated with hold keyframes.',
+          'Save a startup project.',
+          'Organize project files in nested folders.',
+          'Convert masks into path layers.',
+        ],
+      },
+      {
+        title: 'Rendering, Distribution & Fixes',
+        items: [
+          'Customize rendered-file metadata.',
+          'Include UI elements and bounding boxes in renders.',
+          'Added Discord Rich Presence.',
+          'Reduced installer size.',
+          'The Windows installer is now code-signed.',
+          'Fixed community-reported bugs and improved overall stability.',
+        ],
+      },
+    ],
+    assets: assetsFor(LATEST_RELEASE_VERSION, LATEST_RELEASE_BASE, LATEST_RELEASE_CHECKSUMS),
+  },
+  {
     version: '1.1.0',
     tag: '1.1.0',
     title: 'Animoia 1.1.0',
     date: 'September 21, 2026',
     isoDate: '2026-09-21',
-    latest: true,
     summary:
       'A ground-up rewrite of the tracking system, a graph editor in the timeline, snapping and auto-tracing everywhere, a redesigned render window, and the first paid plugin: Rigid Bodies.',
     sections: [
@@ -219,7 +354,7 @@ export const RELEASES: Release[] = [
         ],
       },
     ],
-    assets: assetsFor('1.1.0', LATEST_RELEASE_BASE, SHA256_1_1_0),
+    assets: assetsFor('1.1.0', `${RELEASES_URL}/download/1.1.0`, SHA256_1_1_0),
   },
   {
     version: '1.0.0',

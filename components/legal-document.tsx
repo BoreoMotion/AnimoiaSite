@@ -1,3 +1,5 @@
+import { Fragment } from 'react'
+import Link from 'next/link'
 import type { LicenseBlock, LicenseSection } from '@/lib/license'
 
 type LegalDocumentProps = {
@@ -21,7 +23,7 @@ export function LegalDocument({ title, lastUpdated, intro, sections, closing }: 
       <div className="mt-8 flex flex-col gap-4">
         {intro.map((text) => (
           <p key={text} className="text-[15px] leading-[1.65] text-neutral-300">
-            {text}
+            <LegalText text={text} />
           </p>
         ))}
       </div>
@@ -68,7 +70,7 @@ export function LegalDocument({ title, lastUpdated, intro, sections, closing }: 
 
       <footer className="mt-14 flex flex-col gap-2 border-t border-white/10 pt-6 text-[13px] leading-[1.6] text-neutral-500">
         {closing.map((text) => (
-          <p key={text}>{text}</p>
+          <p key={text}><LegalText text={text} /></p>
         ))}
       </footer>
     </article>
@@ -81,12 +83,31 @@ function Block({ block }: { block: LicenseBlock }) {
       <ul className="flex flex-col gap-2.5 pl-5">
         {block.items.map((item) => (
           <li key={item} className="list-disc text-[15px] leading-[1.65] text-neutral-400 marker:text-neutral-600">
-            {item}
+            <LegalText text={item} />
           </li>
         ))}
       </ul>
     )
   }
 
-  return <p className="whitespace-pre-line text-[15px] leading-[1.65] text-neutral-400">{block.text}</p>
+  return <p className="whitespace-pre-line text-[15px] leading-[1.65] text-neutral-400"><LegalText text={block.text} /></p>
+}
+
+function LegalText({ text }: { text: string }) {
+  const parts = text.split(/(\*\*[^*]+\*\*|animoia\.com\/(?:third-party-licenses|privacy|license)|discord\.com\/privacy|baraa@animoia\.com)/g)
+  const linkClassName = 'text-neutral-200 underline underline-offset-4 transition-colors hover:text-white'
+
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={index} className="font-medium text-neutral-200">{part.slice(2, -2)}</strong>
+    }
+    if (part.startsWith('animoia.com/')) {
+      return <Link key={index} href={part.slice('animoia.com'.length)} className={linkClassName}>{part}</Link>
+    }
+    if (part === 'discord.com/privacy' || part === 'baraa@animoia.com') {
+      const href = part.includes('@') ? `mailto:${part}` : `https://${part}`
+      return <a key={index} href={href} className={linkClassName}>{part}</a>
+    }
+    return <Fragment key={index}>{part}</Fragment>
+  })
 }

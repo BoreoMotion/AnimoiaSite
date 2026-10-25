@@ -1,10 +1,10 @@
 import type { LicenseBlock, LicenseSection } from '@/lib/license'
 
-export const PRIVACY_LAST_UPDATED = 'September 28, 2026'
+export const PRIVACY_LAST_UPDATED = 'October 25, 2026'
 
 export const PRIVACY_INTRO = [
   'This Privacy Policy explains what information Baraa Khaled ("we," "us," or the "Licensor") collects when you ("You") use the Animoia desktop application, its Paid Plugins, and the animoia.com website; why that information is collected; and what choices You have. It should be read together with the Animoia End User License Agreement, and it uses the same defined terms (such as "License Key," "Activation," and "Device").',
-  'The short version: Animoia is an offline application. It has no accounts and no analytics, telemetry, or tracking. Your projects and Output never leave Your computer. The only time the Software contacts us is when You activate or deactivate a Paid Plugin.',
+  'The short version: Animoia is an offline application. It has no accounts and no analytics, telemetry, or tracking. Your projects and Output never leave Your computer. The only time the Software contacts us is when You activate or deactivate a Paid Plugin. Animoia can also talk to other apps on Your own computer, Discord and AI tools You connect, as described in Section 3.',
 ]
 
 const p = (text: string): LicenseBlock => ({ type: 'paragraph', text })
@@ -22,42 +22,53 @@ export const PRIVACY_SECTIONS: LicenseSection[] = [
     number: 2,
     title: 'Information That Stays on Your Device',
     blocks: [
-      p('You do not need an internet connection, an account, or any registration to install or use Animoia. The Application does not collect analytics, telemetry, crash reports, or usage data, and it does not check for updates in the background.'),
+      p('You do not need an internet connection, an account, or any registration to install or use Animoia. The Application does not collect analytics, telemetry, crash reports, or usage data, it does not check for updates in the background, and it does not load images, fonts, or other content from the internet.'),
       p('Everything the Application needs to remember is stored locally on Your Device and is never transmitted to us, including:'),
       list([
         'Your projects, imported footage, images, audio, fonts, and all Output;',
-        'Your preferences, recent-projects list, saved presets, easing curves, and similar editor settings; and',
-        'a local diagnostics file (diagnostics.txt, in the Application\'s log folder) that records window and startup events, which is created only on Your computer, is never uploaded, and is shared only if You choose to send it to us when asking for support.',
+        'Your preferences, recent-projects list, saved presets, easing curves, and similar editor settings;',
+        'Your MCP server settings, including its access token, if You use that feature; and',
+        'a local diagnostics file (diagnostics.txt, in the Application\'s log folder) that records window, startup, and integration events, which is created only on Your computer, is never uploaded, and is shared only if You choose to send it to us when asking for support.',
       ]),
       p('You can delete this local data at any time by removing the Application\'s user-data folder or by uninstalling Animoia.'),
     ],
   },
   {
     number: 3,
+    title: 'Optional Integrations With Other Apps on Your Device',
+    blocks: [
+      p('Animoia includes two integrations that communicate only with other software running on Your own computer. Neither sends anything to us.'),
+      p('**Discord Rich Presence.** If the Discord desktop app is running, Animoia connects to it through a local connection on Your computer and tells it that You are using Animoia, whether You are currently rendering, and when Your session started. Discord may then show this activity (for example, "Playing Animoia") on Your Discord profile to other people, according to Your Discord settings. Animoia does not send Discord Your project names, file names, or any project content. If Discord is not installed or not running, nothing is sent. To stop sharing this activity, turn off **Share your detected activities with others** under **Activity Privacy** in Discord\'s settings, or quit Discord while using Animoia. Discord handles this information under its own privacy policy, available at discord.com/privacy.'),
+      p('**MCP server.** Animoia includes an MCP (Model Context Protocol) server that lets AI tools You choose, such as Claude, Cursor, or VS Code, read and, if You allow it, edit Your open project. It is off by default and is enabled only in Preferences. When enabled, it accepts connections only from Your own computer and only from tools that present the access token shown in Preferences, and it is read-only unless You allow edits. Information an AI tool reads from Your project (such as layer names, text, properties, and captured frames) is passed to that tool, which may send it to its own AI provider. That tool\'s handling of the information is governed by its own terms and privacy policy, not this one.'),
+    ],
+  },
+  {
+    number: 4,
     title: 'Information Sent During Activation',
     blocks: [
-      p('When You activate or deactivate a Paid Plugin, and only then, the Application sends the following information to our license server:'),
+      p('When You activate a Paid Plugin, the Application sends the following information to our license server:'),
       list([
         'Your License Key;',
         'a Device identifier, which is a one-way hash generated on Your computer; it cannot be reversed to reveal Your hardware details or any other information about You;',
-        'a Device name made up of Your computer\'s hostname and operating system (for example, "studio-pc (Windows)"), so that You can tell Your Devices apart when managing activations; and',
+        'a Device name made up of Your computer\'s name as set in Your operating system and the name of the operating system (for example, "studio-pc (Windows)"), so that You can tell Your Devices apart when managing activations; and',
         'the version of Animoia that You are running.',
       ]),
+      p('When You deactivate a Paid Plugin, the Application sends only Your License Key and the Device identifier.'),
       p('For each activated Device, the server stores these values together with the Paid Plugin they belong to and the date and time of the Activation. No files, project data, usage statistics, or other personal information are ever transmitted.'),
       p('To confirm that a License Key is genuine, the license server sends the License Key, along with the product it is being checked against, to Gumroad\'s license verification service. Gumroad tells us whether the purchase is valid or whether it has been refunded, disputed, charged back, or cancelled. It does not tell us anything about Your Device.'),
     ],
   },
   {
-    number: 4,
+    number: 5,
     title: 'IP Addresses and Abuse Prevention',
     blocks: [
       p('As with any internet request, an Activation or Deactivation reveals Your IP address to the license server. We do not store IP addresses for successful requests.'),
       p('For unsuccessful Activation attempts, we temporarily record the IP address and time to protect the license service from misuse. These records are kept only briefly and are then deleted.'),
-      p('Cloudflare, our hosting provider, may also keep short-lived operational request logs (for example, the time, route, and status of a request) for security and troubleshooting purposes, as described in Section 7.'),
+      p('Cloudflare, our hosting provider, may also keep short-lived operational request logs (for example, the time, route, and status of a request) for security and troubleshooting purposes, as described in Section 8.'),
     ],
   },
   {
-    number: 5,
+    number: 6,
     title: 'Purchases and Donations',
     blocks: [
       p('Paid Plugins and donations are sold and processed by Gumroad, Inc., which acts under its own terms and privacy policy. We never see or store Your payment card details.'),
@@ -66,17 +77,17 @@ export const PRIVACY_SECTIONS: LicenseSection[] = [
     ],
   },
   {
-    number: 6,
+    number: 7,
     title: 'The Website',
     blocks: [
       p('The animoia.com website does not use analytics, advertising, or tracking cookies, and it does not ask You to create an account.'),
       p('As with any website, Cloudflare, which hosts animoia.com, and our font provider automatically process standard technical information (such as Your IP address, browser type, and the pages You request) in order to deliver pages and fonts and protect the service from abuse.'),
-      p('Links to Gumroad, YouTube, documentation, and other third-party sites take You to services that have their own privacy practices, which we do not control.'),
+      p('Links to Gumroad, YouTube, documentation, and other third-party sites take You to services that have their own privacy practices, which we do not control. Links inside the Application, such as to the plugin marketplace, open in Your web browser only when You click them.'),
       p('If You email us, we receive Your email address and anything You choose to include in Your message, and we use it only to respond to You.'),
     ],
   },
   {
-    number: 7,
+    number: 8,
     title: 'Service Providers',
     blocks: [
       p('We rely on a small number of providers that process data on our behalf or independently:'),
@@ -85,11 +96,12 @@ export const PRIVACY_SECTIONS: LicenseSection[] = [
         'Gumroad, Inc. provides our storefront, payment processing, License Key issuance, and License Key verification.',
         'Adobe Inc. provides website fonts.',
       ]),
+      p('Discord and any AI tool You connect to the MCP server are not our service providers. They receive information directly from Your computer, at Your choice, and act independently under their own policies.'),
       p('We do not sell, rent, or trade Your personal information, and we do not share it for advertising. We disclose information to anyone other than the providers above only when required by law or when necessary to protect our rights, such as in response to fraud.'),
     ],
   },
   {
-    number: 8,
+    number: 9,
     title: 'Why We Process Your Information',
     blocks: [
       p('We process the information described above only for the following purposes and, where applicable law requires one, on the following legal grounds:'),
@@ -102,7 +114,7 @@ export const PRIVACY_SECTIONS: LicenseSection[] = [
     ],
   },
   {
-    number: 9,
+    number: 10,
     title: 'How Long We Keep Information',
     blocks: [
       list([
@@ -114,7 +126,7 @@ export const PRIVACY_SECTIONS: LicenseSection[] = [
     ],
   },
   {
-    number: 10,
+    number: 11,
     title: 'Security',
     blocks: [
       p('We limit the personal information we collect and take reasonable measures to protect it.'),
@@ -122,14 +134,14 @@ export const PRIVACY_SECTIONS: LicenseSection[] = [
     ],
   },
   {
-    number: 11,
+    number: 12,
     title: 'International Transfers',
     blocks: [
       p('We are based in Egypt, and our service providers operate globally. Cloudflare processes requests at the network location nearest to You, and our other providers are based in the United States. As a result, Your information may be processed outside Your country of residence. Where the law requires it, we rely on our providers\' contractual safeguards, such as Standard Contractual Clauses, to protect these transfers.'),
     ],
   },
   {
-    number: 12,
+    number: 13,
     title: 'Your Rights',
     blocks: [
       p('Depending on where You live (including under the EU and UK GDPR, the California Consumer Privacy Act, and Egypt\'s Personal Data Protection Law No. 151 of 2020), You may have the right to:'),
@@ -145,21 +157,21 @@ export const PRIVACY_SECTIONS: LicenseSection[] = [
     ],
   },
   {
-    number: 13,
+    number: 14,
     title: 'Children',
     blocks: [
       p('The Software and the website are not directed at children under 13 (or under 16, where local law sets a higher age), and we do not knowingly collect personal information from them. If You believe that a child has given us personal information, please contact us, and we will delete it.'),
     ],
   },
   {
-    number: 14,
+    number: 15,
     title: 'Changes to This Policy',
     blocks: [
       p('We may update this Privacy Policy when the Software or our service providers change. The "Last updated" date at the top of this page shows when it was last revised. If a change materially expands the information we collect, we will announce it in the changelog or release notes before it takes effect.'),
     ],
   },
   {
-    number: 15,
+    number: 16,
     title: 'Contact',
     blocks: [
       p('For questions about this Privacy Policy or Your information, please contact:'),

@@ -4,10 +4,9 @@ import Link from 'next/link'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { DownloadButtons, type DownloadTarget } from '@/components/download-buttons'
 import { MaskIcon } from '@/components/mask-icon'
-import { LATEST_RELEASE_BASE } from '@/lib/changelog'
+import { LATEST_SBOM_ASSET } from '@/lib/changelog'
 
 const DISCORD_URL = 'https://discord.gg/ZUn8Frpdbx'
-const SBOM_URL = `${LATEST_RELEASE_BASE}/animoia-1.1.0-sbom.json`
 
 export function HeroDownloads() {
   const [target, setTarget] = useState<DownloadTarget | null>(null)
@@ -104,8 +103,8 @@ export function HeroDownloads() {
   •
   </span>
   <a
-  href={SBOM_URL}
-  download="animoia-1.1.0-sbom.json"
+  href={LATEST_SBOM_ASSET.href}
+  download={LATEST_SBOM_ASSET.name}
   className="transition-colors hover:text-neutral-300"
   >
   Download SBOM

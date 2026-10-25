@@ -3,7 +3,11 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { GrainOverlay } from '@/components/grain-overlay'
 import { MaskIcon } from '@/components/mask-icon'
-import { LATEST_RELEASE_BASE as RELEASE_BASE, SHA256_1_1_0 } from '@/lib/changelog'
+import {
+  LATEST_RELEASE_BASE as RELEASE_BASE,
+  LATEST_RELEASE_VERSION,
+  LATEST_RELEASE_CHECKSUMS,
+} from '@/lib/changelog'
 
 export type DownloadTarget = {
   platform: string
@@ -25,8 +29,9 @@ const Cmd = ({ children }: { children: ReactNode }) => (
 const install: Record<'windows' | 'mac' | 'appimage' | 'deb', ReactNode> = {
   windows: (
     <>
-      Run the <B>.exe</B>. Windows may show a <B>&quot;Windows protected your PC&quot;</B> warning
-      because the app is not signed: click <B>More info</B>, then <B>Run anyway</B>.
+      Run the <B>.exe</B> and follow the setup instructions. The Windows installer is now{' '}
+      <B>code-signed</B>. If Windows asks for permission to make changes, approve it to continue
+      the installation.
     </>
   ),
   mac: (
@@ -45,7 +50,7 @@ const install: Record<'windows' | 'mac' | 'appimage' | 'deb', ReactNode> = {
   ),
   deb: (
     <>
-      Install with <Cmd>sudo apt install ./animoia-1.1.0-linux.deb</Cmd> (or open it with your
+      Install with <Cmd>{`sudo apt install ./animoia-${LATEST_RELEASE_VERSION}-linux.deb`}</Cmd> (or open it with your
       package manager), then <B>launch Animoia</B> from your app menu.
     </>
   ),
@@ -74,9 +79,9 @@ const downloads: DownloadEntry[] = [
     short: 'Windows',
     icon: '/icons/windows.svg',
     iconClass: 'size-[13px]',
-    href: `${RELEASE_BASE}/animoia-1.1.0-windows.exe`,
+    href: `${RELEASE_BASE}/animoia-${LATEST_RELEASE_VERSION}-windows.exe`,
     platform: 'Windows',
-    sha256: SHA256_1_1_0.windows,
+    sha256: LATEST_RELEASE_CHECKSUMS.windows,
     install: install.windows,
   },
   {
@@ -89,16 +94,16 @@ const downloads: DownloadEntry[] = [
         label: 'Apple Silicon',
         hint: 'M1 and later',
         platform: 'macOS (Apple Silicon)',
-        href: `${RELEASE_BASE}/animoia-1.1.0-macOS-arm64.dmg`,
-        sha256: SHA256_1_1_0.macArm64,
+        href: `${RELEASE_BASE}/animoia-${LATEST_RELEASE_VERSION}-macOS-arm64.dmg`,
+        sha256: LATEST_RELEASE_CHECKSUMS.macArm64,
         install: install.mac,
       },
       {
         label: 'Intel',
         hint: 'x86_64',
         platform: 'macOS (Intel)',
-        href: `${RELEASE_BASE}/animoia-1.1.0-macOS-x64.dmg`,
-        sha256: SHA256_1_1_0.macX64,
+        href: `${RELEASE_BASE}/animoia-${LATEST_RELEASE_VERSION}-macOS-x64.dmg`,
+        sha256: LATEST_RELEASE_CHECKSUMS.macX64,
         install: install.mac,
       },
     ],
@@ -113,16 +118,16 @@ const downloads: DownloadEntry[] = [
         label: 'AppImage',
         hint: 'Universal',
         platform: 'Linux (AppImage)',
-        href: `${RELEASE_BASE}/animoia-1.1.0-linux.AppImage`,
-        sha256: SHA256_1_1_0.appImage,
+        href: `${RELEASE_BASE}/animoia-${LATEST_RELEASE_VERSION}-linux.AppImage`,
+        sha256: LATEST_RELEASE_CHECKSUMS.appImage,
         install: install.appimage,
       },
       {
         label: '.deb',
         hint: 'Debian / Ubuntu',
         platform: 'Linux (.deb)',
-        href: `${RELEASE_BASE}/animoia-1.1.0-linux.deb`,
-        sha256: SHA256_1_1_0.deb,
+        href: `${RELEASE_BASE}/animoia-${LATEST_RELEASE_VERSION}-linux.deb`,
+        sha256: LATEST_RELEASE_CHECKSUMS.deb,
         install: install.deb,
       },
     ],

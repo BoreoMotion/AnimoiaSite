@@ -8,7 +8,8 @@ import { PRIVACY_CLOSING, PRIVACY_INTRO, PRIVACY_LAST_UPDATED, PRIVACY_SECTIONS 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Animoia',
   description:
-    'How Animoia handles your data: an offline app with no telemetry, and a minimal, hashed device record sent only when activating paid plugins.',
+    'The Animoia 1.2.0 Privacy Policy: offline project data, optional Discord and MCP integrations, paid plugin activation, and your privacy rights.',
+  alternates: { canonical: '/privacy' },
 }
 
 export default function PrivacyPage() {

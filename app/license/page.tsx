@@ -7,7 +7,8 @@ import { SiteHeader } from '@/components/site-header'
 export const metadata: Metadata = {
   title: 'Software License | Animoia',
   description:
-    'The Animoia End User License Agreement covering the free application, paid plugins, activation, and ownership of your work.',
+    'The Animoia 1.2.0 End User License Agreement covering the free application, paid plugins, local integrations, ownership of your work, and third-party licensing rights.',
+  alternates: { canonical: '/license' },
 }
 
 export default function LicensePage() {
