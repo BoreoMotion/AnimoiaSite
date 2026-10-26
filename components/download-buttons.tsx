@@ -26,14 +26,7 @@ const Cmd = ({ children }: { children: ReactNode }) => (
   </code>
 )
 
-const install: Record<'windows' | 'mac' | 'appimage' | 'deb' | 'flatpak', ReactNode> = {
-  flatpak: (
-    <>
-      Install with{' '}
-      <Cmd>{`flatpak install --user ./animoia-${LATEST_RELEASE_VERSION}-linux.flatpak`}</Cmd> (or open it
-      with your software center), then <B>launch Animoia</B> from your app menu.
-    </>
-  ),
+const install: Record<'windows' | 'mac' | 'appimage' | 'deb', ReactNode> = {
   windows: (
     <>
       Run the <B>.exe</B> and follow the setup instructions. The Windows installer is now{' '}
@@ -121,14 +114,6 @@ const downloads: DownloadEntry[] = [
     icon: '/icons/linux.svg',
     iconClass: 'size-[15px]',
     options: [
-      {
-        label: 'Flatpak',
-        hint: 'Sandboxed',
-        platform: 'Linux (Flatpak)',
-        href: `${RELEASE_BASE}/animoia-${LATEST_RELEASE_VERSION}-linux.flatpak`,
-        sha256: LATEST_RELEASE_CHECKSUMS.flatpak,
-        install: install.flatpak,
-      },
       {
         label: 'AppImage',
         hint: 'Universal',

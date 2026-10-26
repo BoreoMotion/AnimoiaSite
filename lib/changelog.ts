@@ -32,7 +32,7 @@ export const CHANGELOG_GITHUB_URL = RELEASES_URL
 
 export type AssetKey = 'windows' | 'macArm64' | 'macX64' | 'appImage' | 'deb'
 
-export type AssetChecksums = Record<AssetKey, string> & { flatpak?: string }
+export type AssetChecksums = Record<AssetKey, string>
 
 export const SHA256_1_0_0: AssetChecksums = {
   windows: 'cca930b7d4f9a451d1be0cdcf6e186a14af2231a1057af5b4178b327b163bcab',
@@ -50,13 +50,12 @@ export const SHA256_1_1_0: AssetChecksums = {
   deb: '5b1cb13349696b732a4a27b172fa55119ca648dbbe1827e269a2bb4b0bf3f656',
 }
 
-export const SHA256_1_2_0: AssetChecksums & { flatpak: string; sbom: string } = {
+export const SHA256_1_2_0: AssetChecksums & { sbom: string } = {
   windows: 'eb0fb39ba38be79f6125a6ea3905230043708dab759c46e1f2b7a62ec6aef1a5',
   macArm64: 'ac17331e1a68e70ec06df9a75225d686c8b951b25702b344904b8d6852757f98',
   macX64: '879a7ad7de08efc8205b05bb59a77e90982ec30c811a20f933568b0eb2007d43',
   appImage: '0630fd9769b189b184ca4d67abd2d3efe6327d47bde03036666a13861400a597',
   deb: 'afd52ba5c7f510c8117265398deb9a967655d4e27aca245d690972d5fae81f69',
-  flatpak: '1fefb0cfed60bb7b8a86a21cc4f2f518730279ad2c54e89ac9711086ce9dd386',
   sbom: '896976c28b9775c1575a04feea0ff253f2b2306cff98fb7086725a484ccae6f2',
 }
 
@@ -83,14 +82,10 @@ const NO_CHECKSUMS: AssetChecksums = {
 
 function assetsFor(version: string, base: string | null, sha: AssetChecksums = NO_CHECKSUMS): ReleaseAsset[] {
   const file = (suffix: string) => (base ? `${base}/animoia-${version}-${suffix}` : null)
-  const flatpak: ReleaseAsset[] = sha.flatpak
-    ? [{ name: `animoia-${version}-linux.flatpak`, platform: 'Linux (Flatpak)', href: file('linux.flatpak'), sha256: sha.flatpak }]
-    : []
   return [
     { name: `animoia-${version}-windows.exe`, platform: 'Windows', href: file('windows.exe'), sha256: sha.windows },
     { name: `animoia-${version}-macOS-arm64.dmg`, platform: 'macOS (Apple Silicon)', href: file('macOS-arm64.dmg'), sha256: sha.macArm64 },
     { name: `animoia-${version}-macOS-x64.dmg`, platform: 'macOS (Intel)', href: file('macOS-x64.dmg'), sha256: sha.macX64 },
-    ...flatpak,
     { name: `animoia-${version}-linux.AppImage`, platform: 'Linux (AppImage)', href: file('linux.AppImage'), sha256: sha.appImage },
     { name: `animoia-${version}-linux.deb`, platform: 'Linux (.deb)', href: file('linux.deb'), sha256: sha.deb },
   ]
