@@ -61,20 +61,19 @@ export const SHA256_1_2_0: AssetChecksums & { flatpak: string; sbom: string } = 
 }
 
 export const SHA256_1_2_5: AssetChecksums & { flatpak: string; sbom: string } = {
-  windows: '56752dfc02a753778b972be9d137af7eabaaea9df05eb5891083b46721c42c05',
-  macArm64: '871ac77e194a5d29e6332295a2a567b4df33c34068e490f76c7e5e03270c963b',
-  macX64: '929d27d28d3e8e6edc2c86c820f0a3bae4ee3e87f206534c89cf8cf2c7920793',
-  appImage: '26f8c1aa7dfaf845435ed5feb40c106c73db9a35379ff9aee4bc03a032fb89a9',
-  deb: '50c062b78daf2dc62533532c8d41b871d32c90f6d83f4e33684560a64b506ee4',
-  flatpak: '9ee37587897a2752cea758e054983e9d8677414832ac28c61f034aee194773d4',
-  sbom: '30fab4945d95c7ff4012d068d3de91d81745478e3dfa3583485b93d037633e4e',
+  windows: '80c5240a6bb893ff36127dec1f9395973b7f616ce6bcac6571a559f25ee1b2a3',
+  macArm64: '3c5cd4b4fe72e3f20166d22d0d3eb52bf108486b78e09cbff0f72724a33b2801',
+  macX64: '9097cce5018d46f938ee2256a88430225643be446886a5325093359ab045f3ba',
+  appImage: '8ea18032f00056dbd843cfa06961b161be8f7aac6f5927464691521571dc945f',
+  deb: '30c13deb337cfe9f0b8d296459977c15f8b60a9c9d70ab739d94ee08ddfc3a7e',
+  flatpak: '6d4c2624713f23268257df2f4f7abcac48bc3aa60e89834d0ecaf7048ee65f8d',
+  sbom: 'e98abe7fda03e60417ddf310249e57d77bcf6ac6bfecec5d8a34a66555c627d4',
 }
 
 export const LATEST_RELEASE_VERSION = '1.2.5'
 export const LATEST_RELEASE_CHECKSUMS = SHA256_1_2_5
 
-/** GitHub release download base for the current version (tag has no "v" prefix). */
-export const LATEST_RELEASE_BASE = `${RELEASES_URL}/download/${LATEST_RELEASE_VERSION}`
+export const LATEST_RELEASE_BASE = `${RELEASES_URL}/download/v${LATEST_RELEASE_VERSION}`
 
 export const LATEST_SBOM_ASSET = {
   name: `animoia-${LATEST_RELEASE_VERSION}-sbom.json`,
