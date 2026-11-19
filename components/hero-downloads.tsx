@@ -89,7 +89,7 @@ export function HeroDownloads() {
   <p className="mt-5 flex w-full flex-col items-center gap-y-1.5 whitespace-nowrap text-[13px] text-neutral-500 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:gap-x-2.5 sm:gap-y-0 sm:text-[14px]">
   <span className="flex items-center justify-end gap-x-2.5">
   <Link href="/changelog" className="transition-colors hover:text-neutral-300">
-  Previous Versions
+  All Versions
   </Link>
   <span aria-hidden className="hidden text-neutral-400 sm:inline">
   •

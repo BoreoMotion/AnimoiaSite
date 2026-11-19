@@ -3,11 +3,11 @@ import { Reveal } from '@/components/reveal'
 
 const features = [
   {
-    title: '120+ Effects',
+    title: '145+ Effects',
     image: '/images/features/effects.jpg',
     alt: 'Strips of footage with different glitch, pixelate, and distortion effects applied',
     description:
-      'Animoia ships with more than 120 built-in effects, from blurs, glows, and color tools to glitches, distortions, and stylized looks. You can put effects on layers or as an adjustment applied to everything below. Every effect is editable, fully keyframeable, and can be stacked and combined to build your own custom looks.',
+      'Animoia ships with more than 145 built-in effects, from blurs, glows, and color tools to glitches, distortions, and stylized looks. You can put effects on layers or as an adjustment applied to everything below. Every effect is editable, fully keyframeable, and can be stacked and combined to build your own custom looks.',
   },
   {
     title: 'Tracking & Stabilization',

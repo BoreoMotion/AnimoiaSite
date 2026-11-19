@@ -1,5 +1,3 @@
-const SIZES = '(max-width: 1260px) calc(100vw - 2rem), 1260px'
-
 export function AppPreview() {
   return (
     <section
@@ -7,32 +5,19 @@ export function AppPreview() {
       className="mx-auto mt-6 w-full max-w-[1260px] px-4 sm:px-6 md:mt-7"
     >
       <div className="app-preview-enter relative z-50 overflow-hidden rounded-[10px] border border-white/10 bg-[#0b0b0b] shadow-[0_-10px_60px_-20px_rgba(0,0,0,0.8)]">
-        {/* next/image is unoptimized in this project, so hand-encoded AVIF/WebP
-            variants are served directly; the aspect ratio is reserved via
-            width/height to avoid layout shift while the image loads. */}
-        <picture>
-          <source
-            type="image/avif"
-            srcSet="/images/animoia-app-1280.avif 1280w, /images/animoia-app-1918.avif 1918w"
-            sizes={SIZES}
-          />
-          <source
-            type="image/webp"
-            srcSet="/images/animoia-app-1280.webp 1280w, /images/animoia-app-1918.webp 1918w"
-            sizes={SIZES}
-          />
-          <img
-            draggable={false}
-            data-intro-asset
-            src="/images/animoia-app-1918.webp"
-            alt="Animoia 1.2 editor showing a fruit still life with large 1.2 text, the properties panel, effects browser, and layered timeline"
-            width={1920}
-            height={1080}
-            decoding="async"
-            fetchPriority="high"
-            className="h-auto w-full"
-          />
-        </picture>
+        {/* next/image is unoptimized in this project; reserve the aspect ratio
+            via width/height to avoid layout shift while the image loads. */}
+        <img
+          draggable={false}
+          data-intro-asset
+          src="/images/animoia-app-1-2-5.png"
+          alt="Animoia 1.2.5 editor showing glowing version text over blue and teal waves, with the effects panels and timeline visible"
+          width={1919}
+          height={1079}
+          decoding="async"
+          fetchPriority="high"
+          className="h-auto w-full"
+        />
       </div>
     </section>
   )

@@ -60,8 +60,18 @@ export const SHA256_1_2_0: AssetChecksums & { flatpak: string; sbom: string } = 
   sbom: '896976c28b9775c1575a04feea0ff253f2b2306cff98fb7086725a484ccae6f2',
 }
 
-export const LATEST_RELEASE_VERSION = '1.2.0'
-export const LATEST_RELEASE_CHECKSUMS = SHA256_1_2_0
+export const SHA256_1_2_5: AssetChecksums & { flatpak: string; sbom: string } = {
+  windows: '56752dfc02a753778b972be9d137af7eabaaea9df05eb5891083b46721c42c05',
+  macArm64: '871ac77e194a5d29e6332295a2a567b4df33c34068e490f76c7e5e03270c963b',
+  macX64: '929d27d28d3e8e6edc2c86c820f0a3bae4ee3e87f206534c89cf8cf2c7920793',
+  appImage: '26f8c1aa7dfaf845435ed5feb40c106c73db9a35379ff9aee4bc03a032fb89a9',
+  deb: '50c062b78daf2dc62533532c8d41b871d32c90f6d83f4e33684560a64b506ee4',
+  flatpak: '9ee37587897a2752cea758e054983e9d8677414832ac28c61f034aee194773d4',
+  sbom: '30fab4945d95c7ff4012d068d3de91d81745478e3dfa3583485b93d037633e4e',
+}
+
+export const LATEST_RELEASE_VERSION = '1.2.5'
+export const LATEST_RELEASE_CHECKSUMS = SHA256_1_2_5
 
 /** GitHub release download base for the current version (tag has no "v" prefix). */
 export const LATEST_RELEASE_BASE = `${RELEASES_URL}/download/${LATEST_RELEASE_VERSION}`
@@ -101,9 +111,54 @@ export const RELEASES: Release[] = [
     version: LATEST_RELEASE_VERSION,
     tag: LATEST_RELEASE_VERSION,
     title: `Animoia ${LATEST_RELEASE_VERSION}`,
+    date: 'November 19, 2026',
+    isoDate: '2026-11-19',
+    latest: true,
+    summary:
+      'Animoia 1.2.5 introduces Phantom, an experimental WebGPU renderer, alongside transparent video exports, faster video layers, and five new effects.',
+    sections: [
+      {
+        title: 'Rendering & Export',
+        items: [
+          'Try Phantom, the experimental WebGPU renderer. It often renders more than 50% faster.',
+          'Encode exports with your local FFmpeg installation for finer control over output settings and support for transparent video.',
+          'Video layers are significantly faster.',
+        ],
+      },
+      {
+        title: 'Effects',
+        items: [
+          'Added Checkerboard, Pixel Sort, Lock-on, Anti-Aliasing, and Kaleidoscope.',
+          'All generative effects now let you scale each axis independently.',
+          'Displacement can now use the layer it is applied to as its input.',
+        ],
+      },
+      {
+        title: 'Editing & Timeline',
+        items: [
+          'Anchor point handles now support snapping.',
+          'Added more options for arranging and distributing layers.',
+          'Use Lock Children to temporarily pause parenting while you edit.',
+          'Hide all locked layers from the timeline with a single toggle.',
+        ],
+      },
+      {
+        title: 'Preview, Preferences & Fixes',
+        items: [
+          'Open the preview in fullscreen with Ctrl+F, the default shortcut.',
+          'In Preferences, you can replace layer pickers with pickwhips or turn off floating panels.',
+          'Refined the interface and fixed all bugs reported by users before this release.',
+        ],
+      },
+    ],
+    assets: assetsFor(LATEST_RELEASE_VERSION, LATEST_RELEASE_BASE, LATEST_RELEASE_CHECKSUMS),
+  },
+  {
+    version: '1.2.0',
+    tag: '1.2.0',
+    title: 'Animoia 1.2.0',
     date: 'October 25, 2026',
     isoDate: '2026-10-25',
-    latest: true,
     summary:
       '3D layers and camera tracking, JavaScript formulas, MCP integration, optical flow, simulated particles, OpenColorIO, modular workspaces, and major performance improvements.',
     sections: [
@@ -212,7 +267,7 @@ export const RELEASES: Release[] = [
         ],
       },
     ],
-    assets: assetsFor(LATEST_RELEASE_VERSION, LATEST_RELEASE_BASE, LATEST_RELEASE_CHECKSUMS),
+    assets: assetsFor('1.2.0', `${RELEASES_URL}/download/1.2.0`, SHA256_1_2_0),
   },
   {
     version: '1.1.0',

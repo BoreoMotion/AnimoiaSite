@@ -16,7 +16,7 @@ export function ChangelogReleases() {
             href={`#${release.tag}`}
             className="rounded-[3px] border border-white/[0.09] bg-[#0f0f0f] px-3 py-1.5 font-mono text-[13px] text-neutral-400 transition-colors hover:border-white/20 hover:text-white"
           >
-            {release.tag}
+            {release.version}
           </a>
         ))}
       </nav>
